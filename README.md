@@ -2,6 +2,15 @@
 
 Category Theory Playground
 
-# Build
+# Install
+
+    $ bower install
+    $ npm install
+
+# Run
+
+    $ pulp run
+
+# Build for Web
 
     $ make
