@@ -48,15 +48,18 @@ safeHead array = head array
 --     showMaybe x = fromMaybe "Nothing" x
 
 userInput :: Maybe String
-userInput = Just "Tom"
+userInput = pure "Tom"
+-- userInput = Just "Tom"
 
 getUserByName :: String -> Maybe User
-getUserByName name = (head <<< filter x) userData
-  where x user = user.name == name
+getUserByName name = (head <<< filter fn) userData
+  where fn user = user.name == name
 
--- main :: forall e. Eff (console :: CONSOLE | e) Unit
--- main = do
---   log $ show $ map showUser $ userInput >>= getUserByName
+main :: forall e. Eff (console :: CONSOLE | e) Unit
+main = do
+  log $ show $ map showUser $ userInput >>= getUserByName
+  log $ show $ map showUser $ join $ map getUserByName userInput
+  log $ show $ map showUser $ join $ getUserByName <$> userInput
 
 
 -----------------------------------------------------------------------------------------
@@ -81,7 +84,7 @@ get' url = makeAff (\error success -> get url error success)
 --   result <- get' "https://api.github.com/repos/peter-vilja/unlock-elm/commits"
 --   liftEff $ log result
 
-main = runAff
-       (log <<< show)
-       log
-       $ get' "https://api.github.com/repos/peter-vilja/unlock-elm/commits"
+-- main = runAff
+--        (log <<< show)
+--        log
+--        $ get' "https://api.github.com/repos/peter-vilja/unlock-elm/commits"
