@@ -247,12 +247,13 @@ implementations of these concepts in programming languages.
 % ------------------------------------------------------------
 
   \subsubsection{Initial object}
-    An object a in category $C$ is \textbf{an initial object} if $\forall b \in
+    An object $a$ in category $C$ is \textbf{an initial object} if $\forall b \in
     C. \exists f: a \rightarrow b$ (for every object $b$ in category $C$ there
-    exists a morphism $f$ from initial object $a$ to the object $b$) and for
-    every two morphisms $f: a \rightarrow b$, $g: a \rightarrow b$ have to be
+    exists a morphism $f$ from initial object $a$ to the object $b$) and every
+    two morphisms $f: a \rightarrow b$, $g: a \rightarrow b$ have to be
     equal \cite{barr1990category, pierce1991basic}. In other words, there exists
-    exactly one morphism from $a$ to $b$. A category can have multiple initial
+    exactly one morphism from $a$ to $b$. Commutative diagram \ref{initial} of an initial
+    object $a$ can be found below. A category can have multiple initial
     objects. In category of Set the initial object is an universal construction
     of an empty set $\emptyset$ in terms of category theory and it is the only initial
     object for every Set \cite{barr1990category, pierce1991basic}.
@@ -260,9 +261,9 @@ implementations of these concepts in programming languages.
     \begin{equation}
       \label{initial}
       \begin{tikzcd}[row sep=huge, column sep=huge]
-        & a \\
-        Void \arrow[ur, "absurd"]
-        \arrow[loop right, distance=2em, "id_{void}"]
+        & b \\
+        a \arrow[ur, "absurd"]
+        \arrow[loop right, distance=2em, "id_{a}"]
         & 
       \end{tikzcd}
     \end{equation}
