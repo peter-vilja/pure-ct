@@ -311,19 +311,21 @@ implementations of these concepts in programming languages.
     that there exists an unique morphism $m$ from every other candidate of $A
     \times B$ object called $C$ to object $A \times B$ such that $p \circ m =
     p'$ and $q \circ m = q'$. Where $p' : C \rightarrow A$ and $q' : C
-    \rightarrow B$ \cite{barr1990category, pierce1991basic}. In other words,
-    universal construction defines the $A \times B$ object in terms of all other
-    objects in the category that have morphisms to $A$ and $B$ objects thus
-    object $A \times B$ is a terminal object in a category of all product candidates.  
+    \rightarrow B$ \cite{barr1990category, pierce1991basic}. In
+    other words, universal construction defines the $A \times B$ object in terms
+    of all other objects in the category that have morphisms to $A$ and $B$
+    objects thus object $A \times B$ is a terminal object in a category of all
+    product candidates. Morphisms and objects of product can be found below in
+    form of commutative diagram \ref{product}.
 
     \begin{equation}
       \label{product}
       \begin{tikzcd}[row sep=huge, column sep=huge]
-        & C' \arrow[d, dashed, "m"]
+        & C \arrow[d, dashed, "m"]
         \arrow[ddl, "p'"']
         \arrow[ddr, "q'"]
         & \\
-        & C \arrow[dl, "p"]
+        & A \times B \arrow[dl, "p"]
         \arrow[dr, "q"']
         & \\
         [-2em] A
