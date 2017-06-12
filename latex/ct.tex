@@ -185,27 +185,30 @@ TODO some text here
   \subsubsection{Monomorphism, Epimorphism, Isomorphism}
     In Set theory there exists properties of functions such as injection,
     surjection and bijection. These properties can also be defined in terms of
-    category theory and they are actually defined for any category.
+    category theory and they are actually defined for any category \cite{barr1990category}.
 
     A morphism $f: B \rightarrow C$ in category $D$ is a \textbf{monomorphism}
     if $\forall A. \forall g, h: A \rightarrow B. f \circ g = f \circ h
-    \Rightarrow g = h$. In other words, a morphism $f$ is a monomorphism if any
-    two morphisms from any type $A$ to $B$ composed with morphism $f$ are equal.
-    Monomorphism is categorical analogue to injective function in the Set theory
-    in category of Set.
+    \Rightarrow g = h$ \cite{barr1990category, pierce1991basic}. In other words,
+    a morphism $f$ is a monomorphism if any two morphisms from any type $A$ to
+    $B$ composed with morphism $f$ are equal. Monomorphism is categorical
+    analogue to injective function in the Set theory in category of Set
+    \cite{barr1990category, pierce1991basic}.
 
     A morphism $f: A \rightarrow B$ in category $D$ is an \textbf{epimorphism}
     if $\forall C. \forall g, h: B \rightarrow C. g \circ f = h \circ f
-    \Rightarrow g = h$. In other words, a morphism $f$ is an epimorphism if
-    morphism $f$ composed with any two morphisms from $B$ to any type $C$ are
-    equal. Epimorphism is categorical analogue to surjective function in the Set
-    theory in category of Set.
+    \Rightarrow g = h$ \cite{barr1990category, pierce1991basic}. In other words,
+    a morphism $f$ is an epimorphism if morphism $f$ composed with any two
+    morphisms from $B$ to any type $C$ are equal. Epimorphism is categorical
+    analogue to surjective function in the Set theory in category of Set
+    \cite{barr1990category, pierce1991basic}.
 
     A morphism $f: A \rightarrow B$ in category $D$ is an \textbf{isomorphism}
     if there exists an inverse morphism $f^{-1}: B \rightarrow A$ and
     compositions $f^{-1} \circ f$ and $f \circ f^{-1}$ equals $id_A$ and $id_B$
-    respectively. If isomorphism exists between objects $A$ and $B$, they are
-    isomorphic. Hereby, these two objects are equal up to isomorphism.
+    respectively \cite{barr1990category, pierce1991basic}. If isomorphism exists
+    between objects $A$ and $B$, they are isomorphic. Hereby, these two objects
+    are equal up to isomorphism \cite{pierce1991basic}.
 
     \[
       \begin{tikzcd}[row sep=huge, column sep=huge]
@@ -232,7 +235,7 @@ TODO some text here
     property there exists an unique morphism from the candidate to the object that
     has the universal property. In other word, the object that satisfies the given
     universal property is an initial or terminal object in the category of all
-    candidates.
+    candidates \cite{pierce1991basic}.
   
 % ------------------------------------------------------------
 
@@ -241,10 +244,11 @@ TODO some text here
     C. \exists f: a \rightarrow b$ (for every object $b$ in category $C$ there
     exists a morphism $f$ from initial object $a$ to the object $b$) and for
     every two morphisms $f: a \rightarrow b$, $g: a \rightarrow b$ have to be
-    equal. In other words, there exists exactly one morphism from $a$ to $b$. A
-    category can have multiple initial objects. In category of Set the initial
-    object is an universal construction of an empty set ${}$ in terms of
-    category theory and it is the only initial object for every Set.
+    equal \cite{barr1990category, pierce1991basic}. In other words, there exists
+    exactly one morphism from $a$ to $b$. A category can have multiple initial
+    objects. In category of Set the initial object is an universal construction
+    of an empty set ${}$ in terms of category theory and it is the only initial
+    object for every Set \cite{barr1990category, pierce1991basic}.
 
     \[
       \begin{tikzcd}[row sep=huge, column sep=huge]
@@ -262,11 +266,12 @@ TODO some text here
     in category $C$ is \textbf{a terminal object} if $\forall b \in C. \exists
     f: b \rightarrow a$ (for every object $b$ in category $C$ there exists a
     morphism $f$ from the object $b$ to the terminal object $a$) and for every
-    two morphisms $f: b \rightarrow a$, $g: b \rightarrow a$ have to be equal.
-    In other words, there exists exactly one morphism from $b$ to $a$. A
-    category can have multiple terminal objects. In category of Set the terminal
-    object is an universal construction of singleton set in terms of category
-    theory. Furthermore, each singleton set is a terminal object.
+    two morphisms $f: b \rightarrow a$, $g: b \rightarrow a$ have to be equal
+    \cite{barr1990category, pierce1991basic}. In other words, there exists
+    exactly one morphism from $b$ to $a$. A category can have multiple terminal
+    objects. In category of Set the terminal object is an universal construction
+    of singleton set in terms of category theory. Furthermore, each singleton
+    set is a terminal object \cite{barr1990category, pierce1991basic}.
 
     \[
       \begin{tikzcd}[row sep=huge, column sep=huge]
@@ -282,8 +287,8 @@ TODO some text here
     Algebraic data types such as product and coproduct defines a foundation to
     structures such as tuples and records. Product and coproduct data types
     obeys algebraic laws of identity, associativity and commutativity up to
-    isomorphism respectively. These two data types are widely used in
-    programming languages.
+    isomorphism respectively \cite{barr1990category}. These two data types are
+    widely used in programming languages.
 
 % ------------------------------------------------------------
 
@@ -295,10 +300,10 @@ TODO some text here
     that there exists an unique morphism $m$ from every other candidate of $A
     \times B$ object called $C$ to object $A \times B$ such that $p \circ m =
     p'$ and $q \circ m = q'$. Where $p' : C \rightarrow A$ and $q' : C
-    \rightarrow B$ [Pierce]. In other words, universal construction defines the
-    $A \times B$ object in terms of all other objects in the category that have
-    morphisms to $A$ and $B$ objects thus object $A \times B$ is a terminal
-    object in a category of all product candidates.  
+    \rightarrow B$ \cite{barr1990category, pierce1991basic}. In other words,
+    universal construction defines the $A \times B$ object in terms of all other
+    objects in the category that have morphisms to $A$ and $B$ objects thus
+    object $A \times B$ is a terminal object in a category of all product candidates.  
 
     \[
       \begin{tikzcd}[row sep=huge, column sep=huge]
@@ -338,8 +343,9 @@ TODO some text here
     \amalg B$ that belongs to category $C$. In addition, universal construction
     defines that there exists an unique morphism $m$ from $A \amalg B$ to every
     other candidate of $A \amalg B$ such that $m \circ i = i'$ and $m \circ j =
-    j'$. Where $i' : A \rightarrow C$ and $j' : B \rightarrow C$ [Pierce].
-    Object $A \amalg B$ is an initial object in a category of all coproduct candidates.
+    j'$. Where $i' : A \rightarrow C$ and $j' : B \rightarrow C$
+    \cite{barr1990category, pierce1991basic}. Object $A \amalg B$ is an initial
+    object in a category of all coproduct candidates.
 
     \[
       \begin{tikzcd}[row sep=huge, column sep=huge]
@@ -470,15 +476,15 @@ TODO some text here
   \subsection{Monoid}
     Monoids are semigroups with identity morphism. A monoid is a category with a
     single object and at least an identity morphism \cite{barr1990category,
-      awodey2006category, mac2013categories}. Any morphisms in a monoid can be
-    composed together as the result is always the same object. Thus morphisms in
-    a monoid are endomorphisms which are morphisms from an object to itself.
-    Monoid has to have a associative binary operator, for example multiplication
-    $(a * b) * c = a * (b * c)$. Additionally a monoid has a unit element
-    $\exists u \forall a. B(a,u) = B(u,a) = a$ ($B$ is the binary operator)
-    which does not have any effect in the binary operation. For example if the
-    binary operator is again a multiplication function which operates on
-    integers a unit element is 1.
+      awodey2006category, mac2013categories, yorgey2012monoids}. Any morphisms
+    in a monoid can be composed together as the result is always the same
+    object. Thus morphisms in a monoid are endomorphisms which are morphisms
+    from an object to itself. Monoid has to have a associative binary operator,
+    for example multiplication $(a * b) * c = a * (b * c)$. Additionally a
+    monoid has a unit element $\exists u \forall a. B(a,u) = B(u,a) = a$ ($B$ is
+    the binary operator) which does not have any effect in the binary operation.
+    For example if the binary operator is again a multiplication function which
+    operates on integers a unit element is 1.
 
 % ------------------------------------------------------------
 
