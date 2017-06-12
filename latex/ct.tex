@@ -357,19 +357,20 @@ implementations of these concepts in programming languages.
     \cite{barr1990category, pierce1991basic}. Object $A \amalg B$ is an initial
     object in a category of all coproduct candidates.
 
-    \[
+    \begin{equation}
+      \label{coproduct}
       \begin{tikzcd}[row sep=huge, column sep=huge]
-        a \arrow[dr, "i"]
+        A \arrow[dr, "i"]
         \arrow[ddr, "i'"']
         &
-        & b \arrow[dl, "j"']
+        & B \arrow[dl, "j"']
         \arrow[ddl, "j'"] \\
-        [-2em] & c \arrow[d, dashed, "m"]
+        [-2em] & C \arrow[d, dashed, "m"]
         & \\
-        & c'
+        & C'
         &
       \end{tikzcd}
-    \]
+    \end{equation}
 
     The coproduct is usually presented with sum types. Coproduct obeys algebraic
     laws up to isomorphism and it can be seen as a sum. The coproduct is
