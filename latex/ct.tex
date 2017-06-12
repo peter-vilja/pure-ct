@@ -212,16 +212,19 @@ implementations of these concepts in programming languages.
     compositions $f^{-1} \circ f$ and $f \circ f^{-1}$ equals $id_A$ and $id_B$
     respectively \cite{barr1990category, pierce1991basic}. If isomorphism exists
     between objects $A$ and $B$, they are isomorphic. Hereby, these two objects
-    are equal up to isomorphism \cite{pierce1991basic}.
+    are equal up to isomorphism \cite{pierce1991basic}. Commutative diagram
+    \ref{isomorphism} presents isomorphism in terms of morphisms $f$, $f^{-1}$,
+    $id_A$ and $id_B$.
 
-    \[
+    \begin{equation}
+      \label{isomorphism}
       \begin{tikzcd}[row sep=huge, column sep=huge]
         a \arrow[r, bend left, "f"]
         \arrow[loop above, distance=2em, in=60, out=120, "id_a"]
-        & b \arrow[l, bend left, "g"]
+        & b \arrow[l, bend left, "f^{-1}"]
         \arrow[loop above, distance=2em, in=60, out=120, "id_b"]
       \end{tikzcd}
-    \]
+    \end{equation}
 
 % ------------------------------------------------------------
 
