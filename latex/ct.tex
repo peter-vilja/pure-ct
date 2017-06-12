@@ -519,20 +519,22 @@ implementations of these concepts in programming languages.
     transformation from identity functor to an endofunctor $T$ and $\mu : T^2
     \rightarrow T$ means that $\mu$ is a natural transformation from composition
     of two endofunctors $T$ to an endofunctor $T$. Similarly to monoid $\eta$ is
-    a unit and $\mu$ is multiplication transformation. Diagram Y TODO describes
-    natural transformation $\eta$ and diagram Z TODO describes natural
+    a unit and $\mu$ is multiplication transformation. Commutative diagram
+    \ref{eta} presents natural tranformation $\eta$ and diagram \ref{mu} natural
     transformation $\mu$.
     
-    \[
+    \begin{equation}
+      \label{eta}
       \begin{tikzcd}[column sep=huge]
         C \arrow[r, bend left, "I_T", ""{name=A, below}]
         \arrow[r, bend right, "T"{below}, ""{name=B}]
         & C
         \arrow[Rightarrow, from=A, to=B, "\eta"{right=4}]
       \end{tikzcd}
-    \]
+    \end{equation}
 
-    \[
+    \begin{equation}
+      \label{mu}
       \begin{tikzcd}[column sep=huge]
         C \arrow[r, bend left, "T"]
         \arrow[rr, bend right=30, "T^2", ""{name=A, below}]
@@ -542,21 +544,23 @@ implementations of these concepts in programming languages.
         & C
         \arrow[Rightarrow, from=A, to=B, "\mu"{right=4}]
       \end{tikzcd}
-    \]
+    \end{equation}
 
     A monad has to satisfy identity laws. Left identity $I_T \circ T = T$, where
-    from $I_T \circ T$ we (TODO) can get to $T$ with a natural transformation
-    $\mu \circ (\eta \circ T)$, and right identity $T \circ I_T = T$ where from
-    $T \circ I_T$ we can get to $T$ with a natural transformation $\mu \circ (T
-    \circ \eta)$ \cite{mac2013categories, moggi1989computational}. Diagram X
-    TODO presents left and right identity laws. Additionally a monad has to
-    satisfy the law of associativity $\mu \circ (\mu \circ T) = \mu \circ (T
-    \circ \mu)$. When $T$ is composed with a natural transformation such as $T
-    \circ \mu$ the $T$ presents identity natural transformation $I_T$ instead of
-    endofunctor. The following commutative Diagram X TODO presents the
-    associativity law which monad needs to fulfill.
+    $T$ can be reached from $I_T \circ T$ with a natural transformation
+    $\mu \circ (\eta \circ T)$, and right identity $T \circ I_T = T$ where $T$
+    can be reached from $T \circ I_T$ with a natural transformation $\mu \circ
+    (T \circ \eta)$ \cite{mac2013categories, moggi1989computational}.
+    Commutative diagram \ref{identity} presents left and right identity laws.
+    Additionally a monad has to satisfy the law of associativity $\mu \circ (\mu
+    \circ T) = \mu \circ (T \circ \mu)$. When $T$ is composed with a natural
+    transformation such as $T \circ \mu$ the $T$ presents identity natural
+    transformation $I_T$ instead of endofunctor. The following commutative
+    diagram \ref{associativity} presents the associativity law which monad needs
+    to fulfill.
 
-    \[
+    \begin{equation}
+      \label{associativity}
       \begin{tikzcd}[row sep=huge, column sep=huge]
         T^3 \arrow[r, "\mu\, \circ\, T"]
         \arrow[d, "T\, \circ\, \mu"]
@@ -564,9 +568,10 @@ implementations of these concepts in programming languages.
         T^2 \arrow[r, "\mu"]
         & T
       \end{tikzcd}
-    \]
+    \end{equation}
 
-    \[
+    \begin{equation}
+      \label{identity}
       \begin{tikzcd}[row sep=huge, column sep=huge]
         I_T\, \circ\, T
         \arrow[r, "\eta\, \circ\, T"]
@@ -580,7 +585,7 @@ implementations of these concepts in programming languages.
         & T
         &
       \end{tikzcd}
-    \]
+    \end{equation}
 
     In Haskell (TODO in purescript? pure and join?) natural transformations $\eta$ and $\mu$ are known as
     \lstinline|return| and \lstinline|join|. \lstinline|Maybe|,
@@ -642,26 +647,15 @@ categories. TODO
     presented with the help of \lstinline|Maybe| endofunctor to enforce error
     handling. A function \lstinline|safeHead :: Array a -> Maybe a| maps
     \lstinline|a| to a type \lstinline|Maybe a|, which is an example of mapping
-    objects to another category with endofunctor. (TODO)
+    objects to another category with endofunctor as in diagram \ref{mapping}.
 
-    \[
+    \begin{equation}
+      \label{mapping}
       \begin{tikzcd}[row sep=huge, column sep=huge]
         a \arrow[r, "Maybe"]
         & Maybe\, a
       \end{tikzcd}
-    \]
-
-    \[
-      \begin{tikzcd}[row sep=huge, column sep=huge]
-        a \arrow[r, "Maybe"]
-        \arrow[d, "f"]
-        & Maybe\, a
-        \arrow[d, "map\, f"]
-        \\
-        b \arrow[r, "Maybe"]
-        & Maybe\, b
-      \end{tikzcd}
-    \]
+    \end{equation}
 
     \lstinline|safeHead| function can be used for example when displaying the
     first user from users list with function composition
@@ -671,10 +665,25 @@ categories. TODO
     endofunctor. The new type \lstinline|Maybe User| enforces to handle a case
     where an empty array was returned from \lstinline|getUsers| and makes it
     easier to reason about the program.
- 
+
     Previous examples have presented mapping of objects to objects inside
-    another category, but also morphisms can be mapped. Consider an Web
-    application with a search field and a morphism
+    another category, but also morphisms can be mapped. Diagram \ref{lifting}
+    presents how a morphism can be mapped with Maybe functor.
+
+    \begin{equation}
+      \label{lifting}
+      \begin{tikzcd}[row sep=huge, column sep=huge]
+        a \arrow[r, "Maybe"]
+        \arrow[d, "f"]
+        & Maybe\, a
+        \arrow[d, "map\, f"]
+        \\
+        b \arrow[r, "Maybe"]
+        & Maybe\, b
+      \end{tikzcd}
+    \end{equation}
+
+    Consider an Web application with a search field and a morphism
     \lstinline|getUserByName :: String -> User|. When the search field is
     submitted the \lstinline|getUserByName| function will be invoked and returns
     a user. As before the user input can be mapped to \lstinline|Maybe|,
