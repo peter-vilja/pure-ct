@@ -5,33 +5,25 @@
 \usepackage{listings}
 \usepackage{color}
 
-% \lstset{breaklines}
-% \lstset{basicstyle=\ttfamily, columns=fullflexible, commentstyle=\rm}
-% \definecolor{identifierColor}{rgb}{0.65,0.16,0.16}
-% \lstset{identifierstyle=\color{identifierColor}}
+\definecolor{identifierColor}{rgb}{0.65,0.16,0.16}
 
 \lstset{
-  frame=none,
-  xleftmargin=2pt,
-  stepnumber=1,
-  numbers=left,
-  numbersep=5pt,
-  numberstyle=\ttfamily\tiny\color[gray]{0.3},
-  belowcaptionskip=\bigskipamount,
-  captionpos=b,
-  escapeinside={*'}{'*},
   language=haskell,
-  tabsize=2,
-  emphstyle={\bf},
-  commentstyle=\it,
-  stringstyle=\mdseries\rmfamily,
-  showspaces=false,
-  keywordstyle=\bfseries\rmfamily,
-  columns=flexible,
-  basicstyle=\small\sffamily,
+  aboveskip=3mm,
+  belowskip=3mm,
   showstringspaces=false,
-  morecomment=[l]\%,
-  % identifierstyle=\color{identifierColor},
+  columns=flexible,
+  basicstyle={\small\ttfamily},
+  numbers=none,
+  numberstyle=\tiny\color{gray},
+  keywordstyle=\color{identifierColor},
+  commentstyle=\color{dkgreen},
+  stringstyle=\color{mauve},
+  breaklines=true,
+  breakatwhitespace=true,
+  tabsize=2,
+  numbersep=5pt,
+  showspaces=false,
 }
 
 \begin{document}
@@ -739,28 +731,30 @@ More examples of natural transformations?
  
       However, this method easily leads into situation called callback hell when
       composing multiple asynchronous effects. Composition of asynchronous
-      effects can be solved with continuation monad transformer called $ContT$.
-      With the help of $ContT$, $Eff$ monad can be extended to $Async$ type.
+      effects can be solved with continuation monad transformer called \lstinline|ContT|.
+      With the help of \lstinline|ContT|, \lstinline|Eff| monad can be extended to \lstinline|Async| type.
  
-      \[type Async eff = ContT Unit (Eff eff)\]
- 
-      Now the function $getUserByName$ can be rewrited to fetch the user over XmlHttpRequest.
+      \begin{lstlisting}[language=Haskell]
+        type Async eff = ContT Unit (Eff eff)
+      \end{lstlisting}
+
+      Now the function \lstinline|getUserByName| can be rewrited to fetch the user over XmlHttpRequest.
 
       \begin{lstlisting}[language=Haskell]
       getUserByName :: forall eff. String -> Async (http :: HTTP | eff) (Either Error User)
       \end{lstlisting}
  
-      As in case of $Eff$ monad, the operation of asynchronous side-effect is
-      modeled in type level. In addition, $Async$ enables composition of monadic
+      As in case of \lstinline|Eff| monad, the operation of asynchronous side-effect is
+      modeled in type level. In addition, \lstinline|Async| enables composition of monadic
       effects through continuation transformer. A popular library called
       purescript-aff introduces an alternative approach to asynchronous
       computation, which avoids the use of monad transformers to enable
-      composition of async effects. An asynchronous effect monad called $Aff$ aims
+      composition of async effects. An asynchronous effect monad called \lstinline|Aff| aims
       to eliminate the callback hell and mimic synchronous code with do
       notation, just as async keyword does in JavaScript.
  
       Just as Haskell, a PureScript application does nothing without a
-      side-effect. The main function of an application is expecting an $Eff$
+      side-effect. The main function of an application is expecting an \lstinline|Eff|
       monad. All other effects of an application has to be composed with the
       main effect. That is why the ease of composition of effects is essential
       part of PureScript application.
