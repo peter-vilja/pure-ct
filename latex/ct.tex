@@ -229,15 +229,15 @@ implementations of these concepts in programming languages.
 % ------------------------------------------------------------
 
   \subsection{Universal construction} 
-    A mathematical structure (construction?) has some properties that defines the
+    A mathematical structure (TODO construction?) has some properties that defines the
     structure itself. Universal construction is used to define properties of
-    structures (constructions?) in terms of category theory. These properties are
+    structures (TODO constructions?) in terms of category theory. These properties are
     called as universal properties. As category theory abstracts the details, all
     reasoning of universal properties of some structure has to be done based on
     morphisms and their compositions.
  
     Usually a category contains multiple objects that fulfill some property and
-    structure (construction?). Universal construction picks the best candidate among
+    structure (TODO construction?). Universal construction picks the best candidate among
     these objects. For every other candidate of object that holds the universal
     property there exists an unique morphism from the candidate to the object that
     has the universal property. In other word, the object that satisfies the given
@@ -346,10 +346,12 @@ implementations of these concepts in programming languages.
     isomorphism. Product type also has a unit type \lstinline|()| up to
     isomorphism and thus it obeys algebraic laws of monoid.
 
+    TODO: up to isomorphism repeats a lot above
+
 % ------------------------------------------------------------
 
   \subsubsection{Coproduct}
-    Coproduct is the dual of the product. It is also known as tagged union /
+    Coproduct is the dual of the product. It is also known as tagged union,
     disjoint union, sum type or variant. The coproduct can be constructed by
     inverting the morphisms of the product category. The coproduct is denoted as
     $A \amalg B$ or $A + B$. The object $A \amalg B$ is constructed from two
@@ -398,7 +400,7 @@ implementations of these concepts in programming languages.
     \begin{itemize}
       \item $F(g \circ f) = F\, g \circ F\, f$, when a category $A$ contains any
         composition of any morphisms $g$ and $f$, $g \circ f$.
-      \item $F(id_a) = id_{F\, a}$
+      \item $F\, id_a = id_{F\, a}$
     \end{itemize}
 
     \begin{equation}
@@ -433,8 +435,8 @@ implementations of these concepts in programming languages.
     new functor, for example functors $F: A \rightarrow B$ and $G: B \rightarrow
     C$ can be composed to a functor $G \circ F: A \rightarrow C$. A simple
     example of a functor is a \lstinline|Maybe| functor which maps objects such
-    that \lstinline|a -> Maybe a| and morphisms with a map function
-    \lstinline|(a -> b) -> Maybe a -> Maybe b|.
+    that \lstinline|a -> Maybe a| and morphisms with a function
+    \lstinline|map :: (a -> b) -> Maybe a -> Maybe b|.
 
 % ------------------------------------------------------------
 
@@ -442,13 +444,13 @@ implementations of these concepts in programming languages.
     Natural transformation is a mapping between functors \cite{computational,
       barr1990category, mac2013categories}. Whereas functors mapped objects and
     morphisms between two categories a natural transformation maps the resulting
-    objects from functors together. Thus if we have two functors $F: A
-    \rightarrow B$ and $G: A \rightarrow B$ then a natural transformation
+    objects from functors together. Thus for two functors $F: A
+    \rightarrow B$ and $G: A \rightarrow B$ a natural transformation
     $\alpha: F \rightarrow G$ maps each object in a category $A$ a morphism
     between resulting objects $F\, a$ and $G\, a$ in $B$ from hom-set $hom_B(F\, a,
     G\, a)$. More formally $\alpha_a: F\, a \rightarrow G\, a$. Additionally
     natural transformation $\alpha$ has to follow naturality condition where for
-    every morphism $f: a \rightarrow b$ in category $A$ there has to be equal
+    every morphism $f: a \rightarrow b$ in a category $A$ there has to exist equal
     compositions $\alpha_b \circ F\, f = G\, f \circ \alpha_a$
     \cite{barr1990category, computational, eilenberg1945general}. That is, for
     every two objects $a$ and $b$ in a category $A$ which are connected with at
@@ -476,7 +478,7 @@ implementations of these concepts in programming languages.
     Similarly to a functor a natural transformation has to preserve the
     structure of a category. By definition the structure is preserved by
     preserving morphism between the object $F\, a \rightarrow G\, a$ and having a
-    commuting diagram of every morphism between two objects in the source
+    naturality square of every morphism between two objects in the source
     category. Additionally, as functors, a natural transformation can collapse
     morphisms from a category $A$ to a single morphism in category $B$. Natural
     transformation can also be thought as a family of morphisms between functors.
@@ -499,9 +501,9 @@ implementations of these concepts in programming languages.
       awodey2006category, mac2013categories, yorgey2012monoids}. Any morphisms
     in a monoid can be composed together as the result is always the same
     object. Thus morphisms in a monoid are endomorphisms which are morphisms
-    from an object to itself. Monoid has to have a associative binary operator,
+    from an object to itself. Monoid has to have an associative binary operator,
     for example multiplication $(a * b) * c = a * (b * c)$. Additionally a
-    monoid has a unit element $\exists u \forall a. B(a,u) = B(u,a) = a$ ($B$ is
+    monoid has an unit element $\exists u \forall a. B(a,u) = B(u,a) = a$ ($B$ is
     the binary operator) which does not have any effect in the binary operation.
     For example if the binary operator is again a multiplication function which
     operates on integers a unit element is 1.
@@ -518,8 +520,8 @@ implementations of these concepts in programming languages.
     transformation from identity functor to an endofunctor $T$ and $\mu : T^2
     \rightarrow T$ means that $\mu$ is a natural transformation from composition
     of two endofunctors $T$ to an endofunctor $T$. Similarly to monoid $\eta$ is
-    a unit and $\mu$ is multiplication transformation. Commutative diagram
-    \ref{eta} presents natural tranformation $\eta$ and diagram \ref{mu} natural
+    an unit and $\mu$ is a multiplication transformation. Commutative diagram
+    \ref{eta} presents a natural tranformation $\eta$ and diagram \ref{mu} a natural
     transformation $\mu$.
     
     \begin{equation}
@@ -554,20 +556,9 @@ implementations of these concepts in programming languages.
     Additionally a monad has to satisfy the law of associativity $\mu \circ (\mu
     \circ T) = \mu \circ (T \circ \mu)$. When $T$ is composed with a natural
     transformation such as $T \circ \mu$ the $T$ presents identity natural
-    transformation $I_T$ instead of endofunctor. The following commutative
+    transformation $I_T$ instead of endofunctor. Commutative
     diagram \ref{associativity} presents the associativity law which monad needs
     to fulfill.
-
-    \begin{equation}
-      \label{associativity}
-      \begin{tikzcd}[row sep=huge, column sep=huge]
-        T^3 \arrow[r, "\mu\, \circ\, T"]
-        \arrow[d, "T\, \circ\, \mu"]
-        & T^2 \arrow[d, "\mu"] \\
-        T^2 \arrow[r, "\mu"]
-        & T
-      \end{tikzcd}
-    \end{equation}
 
     \begin{equation}
       \label{identity}
@@ -586,6 +577,17 @@ implementations of these concepts in programming languages.
       \end{tikzcd}
     \end{equation}
 
+    \begin{equation}
+      \label{associativity}
+      \begin{tikzcd}[row sep=huge, column sep=huge]
+        T^3 \arrow[r, "\mu\, \circ\, T"]
+        \arrow[d, "T\, \circ\, \mu"]
+        & T^2 \arrow[d, "\mu"] \\
+        T^2 \arrow[r, "\mu"]
+        & T
+      \end{tikzcd}
+    \end{equation}
+
     In Haskell natural transformations $\eta$ and $\mu$ are known as
     \lstinline|return| and \lstinline|join| and in PureScript they are known as
     \lstinline|pure| and \lstinline|join|. \lstinline|Maybe|,
@@ -597,62 +599,62 @@ implementations of these concepts in programming languages.
 
 \section{Applications}
 
-Basic functional programming patterns uses a lot of category theory under the
-hood. Categorical structures and patterns can be found all around web
-development. For example, in Web applications many operations, such as logging,
-DOM manipulation and XMLHttpRequests, are achieved with side-effects. With the
-help of category theory impure actions can be structured to encapsulate the
-computations to categories. Product and sum types, in turn, provides a structure
-to data and patterns such as monads and functors enchange the data flow. The
-upcoming chapters presents how category theory can be applied into Web
-development with PureScript.
+Basic functional programming patterns use concepts of category theory under the
+hood. Categorical structures and patterns can be found all over Web
+programming. For example, in Web applications many operations, such as logging,
+DOM manipulation and XMLHttpRequests are achieved with side-effects. These
+impure actions can be encapsulated with concepts of category theory. Product and
+sum types, in turn, provide a structure to the data and patterns such as monads and
+functors enhance the data flow. This chapter presents how category
+theory can be applied in Web programming with PureScript.
 
 %------------------------------------------------------------
   \subsection{Product and Coproduct}
-    In PureScript a product is defined as \lstinline|data Tuple a b|, which has
-    two projections \lstinline|fst| and \lstinline|snd| which extracts data out
-    of the tuple type. Product can also be defined as a record and in general
-    all records are just extensions of categorical product. An isomorphism
-    between \lstinline|Tuple a b| and \lstinline|Tuple b a| is defined with a
-    function called \lstinline|swap|.
+    In PureScript a product is defined as \lstinline|data Tuple a b| which has
+    two projections to extract data \lstinline|fst| and \lstinline|snd|. Product
+    can also be defined as a record and in general all records are just
+    extensions of a categorical product. An isomorphism between
+    \lstinline|Tuple a b| and \lstinline|Tuple b a| is defined with a function
+    called \lstinline|swap|.
     
     In PureScript canonical presentation of the coproduct is sum type
     \lstinline{data Either a b = Left a | Right b}. Where constructors
     \lstinline|Left| and \lstinline|Right| correspond to coproduct injections.
-    All sum types can be seen as an extension of the coproduct. The value of sum
-    types can be extracted with pattern matching.
+    All sum types can be seen as an extension of the coproduct. The value of a
+    sum type can be extracted with pattern matching.
     
-    With product and coproduct we can construct algebraic properties as a data
+    With product and coproduct we can construct algebraic properties as data
     types. For instance, distributive property of multiplication $x * (y + z) =
     x * y + x * z$ can be presented with algebraic data types as
     \lstinline|Product x (Either y z) ~ Either (Product x y) (Product x z)| up
     to isomorphism.
 
-    More precisely, almost every data structure can be defined with help of
-    product and coproduct. For example, a data type list, defined as
+    Moreover almost every data structure can be defined with the help of
+    product and coproduct. For example a data type \lstinline|List|, defined as
     \lstinline{data List a = Nil | Cons a (List a)}, uses both product and
     coproduct types. Data constructor \lstinline|Cons| is an analogue to product
-    type and \lstinline|List| is coproduct of either \lstinline|Nil| or \lstinline|Cons|.
+    type and \lstinline|List| is a coproduct of either \lstinline|Nil| or \lstinline|Cons|.
 
     
 %------------------------------------------------------------
 
   \subsection{Functors}
     Endofunctors such as \lstinline|Maybe| and \lstinline|Either| have many use
-    cases in web programming. As a functor \lstinline|Maybe| maps values from a
+    cases in Web programming. As a functor \lstinline|Maybe| maps values from a
     category to either \lstinline|Nothing| or \lstinline|Just| and is
     implemented simply as \lstinline{data Maybe a = Nothing | Just a}. Thus a
     \lstinline|Maybe| is an ideal structure to describe existence of a value. In
     Web programming values, such as user inputs, and features, such as HTML5
     functions, might or might not exist which makes Web programs unsafe.
-    \lstinline|Maybe| can be used to describe the existence of value and enforce
+    \lstinline|Maybe| can be used to describe the existence of a value and to enforce
     proper error handling. For example picking the first element of an empty
     list produces an undefined value which is likely to cause unwanted behavior
-    later in the execution chain. \lstinline|List|'s first value can be
+    later in the execution chain. The first value of a \lstinline|List| can be
     presented with the help of \lstinline|Maybe| endofunctor to enforce error
     handling. A function \lstinline|safeHead :: Array a -> Maybe a| maps
     \lstinline|a| to a type \lstinline|Maybe a|, which is an example of mapping
-    objects to another category with endofunctor as in diagram \ref{mapping}.
+    object from a category to a category of functors with an endofunctor as in
+    diagram \ref{mapping}.
 
     \begin{equation}
       \label{mapping}
@@ -672,7 +674,7 @@ development with PureScript.
     easier to reason about the program.
 
     Previous examples have presented mapping of objects to objects inside
-    another category, but also morphisms can be mapped. Diagram \ref{lifting}
+    another category, but also morphisms are mapped. Diagram \ref{lifting}
     presents how a morphism can be mapped with Maybe functor.
 
     \begin{equation}
@@ -705,20 +707,20 @@ development with PureScript.
     \end{lstlisting}
 
     Furthermore additional morphisms, such as getting the name of the user, can
-    be mapped by just lifting more functions with map and providing the result
-    of user computation as mapping an endofunctor returns the same endofunctor.
+    be mapped by just lifting more functions with map as mapping an endofunctor
+    returns the same endofunctor.
  
-    In addition to mapping objects and morphisms a functor needs to preserve
+    In addition to mapping of objects and morphisms a functor needs to preserve
     identity and composition morphisms thus a function composition of any two
     functions \lstinline|a| and \lstinline|b|, \lstinline|a <<< b|, can be
     mapped multiple ways. For example, composition of functions
-    \lstinline|toUpper| and \lstinline|trim| can be mapped such as
+    \lstinline|toUpper| and \lstinline|trim| can be mapped as
     \lstinline|map toUpper <<< map trim| or \lstinline|map (toUpper <<< trim)|.
     Functor laws provide a powerful tool to reason and refactor application code
     as functions can be interchanged based on the laws.
 
-    In web programming there often exists a requirement to communicate with
-    backend service(s). As a result responses from external services need to
+    In Web programming there often exists a requirement to communicate with
+    backend service(s). As a result responses from external services need to be
     parsed in order to further process the data. The parsing might fail if the
     given message was invalid. This can be avoided by mapping the message to
     another category with \lstinline|Either| functor. Consider a case where JSON
@@ -751,8 +753,6 @@ development with PureScript.
     the search request a natural transformation from
     \lstinline|Maybe String -> Aff e a| has to exist.
 
-More examples of natural transformations?
-
 %------------------------------------------------------------
 
   \subsection{Monads}
@@ -771,7 +771,7 @@ More examples of natural transformations?
       user = map getUserByName userInput
     \end{lstlisting}
  
-    The user value would be a \lstinline|Maybe| wrapped inside a
+    The user value would be a \lstinline|Maybe User| wrapped inside a
     \lstinline|Maybe|. In category theory such a type is expressed as $T^2$. The
     \lstinline|getUserByName| is now an embellished function and
     \lstinline|Maybe| is a monad, thus monad’s natural transformation $\mu : T^2
@@ -792,19 +792,17 @@ More examples of natural transformations?
       user = userInput >>= getUserByName
     \end{lstlisting}
 
-    Using Aff monad for asynchronous computations. Continue below
-
 %------------------------------------------------------------
 
     \subsubsection{Eff and Aff Monad}
-      As PureScript obeys laws of functional programming, it does not have
-      impure side-effects. Instead, side-effects are executed through concept
+      As PureScript obeys laws of functional programming thus it does not have
+      impure side-effects but instead side-effects are executed through a concept
       called effects. Some examples of side-effects are console IO, random
       number generation, exceptions, local storage, XMLHttpRequest and DOM
       manipulation.
 
       \lstinline|Eff| monad enables pure execution context for side-effects.
-      With help of effect monad the function \lstinline|getUserByName| can now
+      With the help of effect monad the function \lstinline|getUserByName| can now
       be rewritten to return the user data from local storage. The definition of
       \lstinline|getUserByName| is updated to
 
@@ -818,7 +816,7 @@ More examples of natural transformations?
       \lstinline|Eff| monad. Here \lstinline|Eff| monad encapsulates side-effect
       interaction with \lstinline|localStorage| which is defined as a part of
       DOM effect. As a result of the side-effect computation the function
-      \lstinline|getUserByName| returns \lstinline|Maybe User|, just as before.
+      \lstinline|getUserByName| returns \lstinline|Maybe User| just as before.
  
       \lstinline|Eff| monad enables the modeling of side effects in type level.
       As a benefit used side-effects can be restricted in type level and
@@ -826,8 +824,8 @@ More examples of natural transformations?
       computations. In addition, \lstinline|Eff| has all the benefits of a monad
       category.
  
-      Some of the side-effects have asynchronous nature. A common way to handle
-      asynchronous computation is to introduce success and failure callbacks.
+      Some of the side-effects have an asynchronous nature. A common way to handle
+      an asynchronous computation is to introduce success and failure callbacks.
  
       \begin{lstlisting}[language=Haskell]
         getUserByName :: forall eff. String 
@@ -894,7 +892,7 @@ understanding of an another concept. Higher abstraction concepts of category
 theory, in turn, require knowledge of basic concepts progressively.
  
 There exists a lot of studies about category theory, but there is a lack of
-studies about practical usage of category theory in web development. PureScript
+studies about practical usage of category theory in Web programming. PureScript
 and its libraries are influenced by category theory. A further study might take
 a more detailed look into libraries of PureScript and find how they are
 influenced by category theory. For example, an user interface library called
@@ -911,10 +909,10 @@ mentioned in this paper.
 Modern statically typed functional programming languages are highly influenced
 by category theory. It have had even larger impact on functional programming
 language semantics than lambda calculus. Abstract properties of category theory
-can be found all over PureScript. These constructions provides enhanced
-reasoning and proved tools to everyday application development.
+can be found all over PureScript. These constructions provide enhanced
+reasoning and proven tools to everyday application development.
  
-Categorical constructions, presented in this paper, are just a tip of the
+Categorical constructions, presented in this paper, are just a tip of a
 iceberg of category theory. PureScript also relies on other categorical concepts
 which were not discussed in this paper. A computer scientist is not required to
 remember fine grained details of category theory in order to use functional
