@@ -46,10 +46,10 @@
   design of functional programming languages, such as Haskell and PureScript,
   and the Web development trend is moving towards purely functional programming
   languages. This paper introduces the basic concepts of the category theory
-  such as a definition of a category, functor and natural transformation and the
-  concepts of Web development are reviewed from a categorical point of view.
-  Complete examples of how the concepts of category theory can be used to ease
-  the development and reasoning of Web based programs are presented and discussed.
+  such as a definition of a category, functor and natural transformation. Web
+  development concepts are reviewed from a categorical point of view. Complete
+  examples of how the concepts of category theory can be used to ease the
+  development and reasoning of Web based programs are presented and discussed.
 
 \vspace{3mm}
 \noindent KEYWORDS: category theory, category, functor, natural transfromation,
@@ -67,7 +67,7 @@ web programming, purescript
     awodey2006category}. Concepts of category theory can be used in different
   fields of mathematics and it provides a way to describe difficult problems
   from an abstract point of view \cite{eilenberg1945general, mclarty2007last}.
-  Category theory has applications in multiple fields such as in programming and
+  It has applications in multiple fields such as in programming and
   in separate fields of mathematics \cite{awodey2006category, reynolds1980using,
     jones1993glasgow}. 
 
@@ -83,26 +83,26 @@ web programming, purescript
   into smaller understandable subproblems which can then be composed together to
   solve the bigger problem. A category consists of objects and morphisms.
   Objects and morphisms alone does not contain any details of a category, but
-  the composition of morphisms between objects describes the category
+  the composition of morphisms between objects describe the category
   \cite{computational, barr1990category}. A composition of morphisms also has to
   fulfill certain laws described later in this paper. In essence, any structure
   that implements composability and identity can be seen as a category.
-  Additionally to definition of a category, functors and natural transformations
+  Additionally to a definition of a category, functors and natural transformations
   are the main principles of category theory \cite{awodey2006category,
     computational}. Commonly a category is described with commutative diagram
   that contains only objects and morphisms.
  
   This paper introduces how concepts of category theory can be used in Web
-  programming although some example are not limited only to the Web programming.
-  The paper reviews basic operations in web such as asynchronous execution, DOM
+  programming although some examples are not limited only to the Web programming.
+  The paper reviews basic operations in Web such as asynchronous execution, DOM
   manipulation and user interaction from a categorical point of view with
   concrete examples in PureScript. Advantages of category theory in Web
-  development are weighted with the focus on simplicity and reasonability of a
+  programming are weighted with the focus on simplicity and reasonability of a
   program. Furthermore, subjects for future work are discussed.
  
   The remainder of this paper is organized as follows. Section 2 introduces the
   main concepts of category theory. Section 3 describes how these concepts can
-  be used in Web development and Section 4 weights the results. Finally Section
+  be used in Web programming and Section 4 weights the results. Finally Section
   6 presents conclusions.
 
 %============================================================
@@ -111,7 +111,7 @@ web programming, purescript
 Category theory consists of general concepts which can be applied across
 different fields of mathematics and in programming. These concepts are abstract
 and can present various abstract constructions. This section reviews
-basic concepts of category theory and shortly provides examples of exsisting
+basic concepts of category theory and shortly provides examples of existing
 implementations of these concepts in programming languages.
 
 %------------------------------------------------------------
@@ -130,10 +130,10 @@ implementations of these concepts in programming languages.
     barr1990category}. A category can contain infinite amount of objects and
   morphisms. In category theory, morphisms between objects describe the category
   thus there is no restrictions to the internal structure of objects in a
-  category \cite{computational}. Category’s important features are identity,
-  composability and abstraction \cite{barr1990category, awodey2006category}. A
-  category can be thought as a graph with an identity and composition
-  properties, where morphisms (edges) connect objects (nodes)
+  category \cite{computational}. Identity, composability and abstraction
+  are important features of a category \cite{barr1990category,
+    awodey2006category}. A category can be thought as a graph with an identity
+  and composition properties, where morphisms (edges) connect objects (nodes)
   \cite{barr1990category}.
 
 %------------------------------------------------------------
@@ -141,7 +141,7 @@ implementations of these concepts in programming languages.
   \subsubsection{Identity}
     For every object $a$ in a category $C$ there has to exist an identity
     morphism, also known as $id_a: a \rightarrow a$ \cite{mac2013categories,
-      computational}. Identity morphism’s domain and codomain are equal $dom(a)
+      computational}. For identity morphism domain and codomain are equal $dom(a)
     = a = cod(a)$ \cite{mac2013categories}. Identity morphism $id_a$ acts as an
     identity when morphisms are composed. Additionally in a category for every
     morphism $f$ there has to exist Left and Right identity. Thus we can compose
@@ -155,7 +155,7 @@ implementations of these concepts in programming languages.
     \cite{computational, barr1990category}. Additionally the identity morphism
     $id_a$ has no effect therefore $g \circ id_a$ and $g$ are equal.
  
-    An Identity element can be stated with Left and Right identity as follows.
+    An identity element can be stated with Left and Right identity as follows.
     $f \circ id_a = f = id_b \circ f$ where $f: a \rightarrow b$, $id_a: a
     \rightarrow a$ and $id_b: b \rightarrow b$ \cite{computational, barr1990category}.
 
@@ -175,7 +175,7 @@ implementations of these concepts in programming languages.
     are as before and $h: c \rightarrow d$ \cite{eilenberg1945general,
       computational, barr1990category, awodey2006category, mac2013categories}.
  
-    $Set_{Rel}$ category, for example, is a category which contains sets as
+    $Set_{Rel}$, for example, is a category which contains sets as
     objects and relations between sets as morphism where a relation is a subset
     of cartesian product of two sets \cite{computational}. Also another slightly
     different category is just Set category where objects are sets and morphisms
@@ -189,7 +189,7 @@ implementations of these concepts in programming languages.
   \subsubsection{Monomorphism, Epimorphism, Isomorphism}
     In Set theory there exists properties of functions such as injection,
     surjection and bijection. These properties can also be defined in terms of
-    category theory and they are actually defined for any category \cite{barr1990category}.
+    category theory and they are defined for any category \cite{barr1990category}.
 
     A morphism $f: B \rightarrow C$ in category $D$ is a \textbf{monomorphism}
     if $\forall A. \forall g, h: A \rightarrow B. f \circ g = f \circ h
