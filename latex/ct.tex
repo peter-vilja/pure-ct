@@ -316,14 +316,15 @@ TODO some text here
     \]
 
     Product is usually presented as a tuple in most programming languages and it
-    is denoted with parenthesis and comma. For example $(a, b)$ is a
+    is denoted with parenthesis and comma. For example \lstinline|(a, b)| is a
     common presentation of tuple in most programming languages. Product type is
     called an algebraic data type as it behaves like a multiplication and it
     obeys algebraic laws up to isomorphism. Product is symmetric up to
-    isomorphism. Types $(a, b)$ and $(b, a)$ are not the same but they preserve the
-    same structure up to isomorphism. An isomorphism between $(a, b)$ and $(b, a)$
-    is commonly defined with a function called $swap$. A product is also
-    associative up to isomorphism. Product type also has a unit type $()$ up to
+    isomorphism. Types \lstinline|(a, b)| and \lstinline|(b, a)| are not the
+    same but they preserve the same structure up to isomorphism. An isomorphism
+    between \lstinline|(a, b)| and \lstinline|(b, a)| is commonly defined with a
+    function called \lstinline|swap|. A product is also associative up to
+    isomorphism. Product type also has a unit type \lstinline|()| up to
     isomorphism and thus it obeys algebraic laws of monoid.
 
 % ------------------------------------------------------------
@@ -406,9 +407,9 @@ TODO some text here
     languages functors are actually endofunctors. A functor can be composed to a
     new functor, for example functors $F: A \rightarrow B$ and $G: B \rightarrow
     C$ can be composed to a functor $G \circ F: A \rightarrow C$. A simple
-    example of a functor is a $Maybe$ functor which maps objects such that $a
-    \rightarrow Maybe a$ and morphisms with a map function $(a \rightarrow b)
-    \rightarrow Maybe a \rightarrow Maybe b$.
+    example of a functor is a \lstinline|Maybe| functor which maps objects such
+    that \lstinline|a -> Maybe a| and morphisms with a map function
+    \lstinline|(a -> b) -> Maybe a -> Maybe b|.
 
 % ------------------------------------------------------------
 
@@ -455,13 +456,14 @@ TODO some text here
     transformation can also be thought as a family of morphisms between functors.
  
     In programming natural transformation is a polymorphic function, a function
-    which is parameterised by a type. For example two functors $List$ and
-    $Maybe$ transform objects and morphisms from a category to another category
-    and the natural transformation is the mapping between these two functors. A
-    natural transformation $safeHead :: [a] \rightarrow Maybe a$ is a natural
-    transformation between $List$ and $Maybe$ functors that safely picks the
-    first element of a list. The naturality condition can be presented as
-    $safeHead \circ fmap f (x:xs) = fmap f \circ safeHead (x:xs)$.
+    which is parameterised by a type. For example two functors \lstinline|List|
+    and \lstinline|Maybe| transform objects and morphisms from a category to
+    another category and the natural transformation is the mapping between these
+    two functors. A natural transformation
+    \lstinline|safeHead :: [a] -> Maybe a| is a natural transformation between
+    \lstinline|List| and \lstinline|Maybe| functors that safely picks the first
+    element of a list. The naturality condition can be presented as
+    \lstinline|safeHead <<< fmap f (x:xs) = fmap f <<< safeHead (x:xs)|.
 
 % ------------------------------------------------------------
     
@@ -554,9 +556,10 @@ TODO some text here
       \end{tikzcd}
     \]
 
-    In Haskell natural transformations $\eta$ and $\mu$ are known as $return$ and $join$.
-    $Maybe$, $Either$, $IO$, $Reader$, $Writer$ and $State$ are examples of popular monads
-    used in programming.
+    In Haskell (TODO in purescript? pure and join?) natural transformations $\eta$ and $\mu$ are known as
+    \lstinline|return| and \lstinline|join|. \lstinline|Maybe|,
+    \lstinline|Either|, \lstinline|IO|, \lstinline|Reader|, \lstinline|Writer|
+    and \lstinline|State| are examples of popular monads used in programming.
 
 
 %============================================================
@@ -570,46 +573,50 @@ categories. TODO
 
 %------------------------------------------------------------
   \subsection{Product and Coproduct}
-    In PureScript a product is defined as $data Tuple a b$, which has two
-    projections $fst$ and $snd$ which extracts data out of the tuple
-    type.Product can also be defined as a record and in general all records are
-    just extensions of categorical product. An isomorphism between $Tuple a b$
-    and $Tuple b a$ is defined with a function called $swap$.
+    In PureScript a product is defined as \lstinline|data Tuple a b|, which has
+    two projections \lstinline|fst| and \lstinline|snd| which extracts data out
+    of the tuple type. Product can also be defined as a record and in general
+    all records are just extensions of categorical product. An isomorphism
+    between \lstinline|Tuple a b| and \lstinline|Tuple b a| is defined with a
+    function called \lstinline|swap|.
     
-    In PureScript canonical presentation of the coproduct is sum type $data
-    Either a b = Left a | Right b$. Where constructors $Left$ and $Right$
-    correspond to coproduct injections. All sum types can be seen as an
-    extension of the coproduct. The value of sum types can be extracted with
-    pattern matching.
+    In PureScript canonical presentation of the coproduct is sum type
+    \lstinline{data Either a b = Left a | Right b}. Where constructors
+    \lstinline|Left| and \lstinline|Right| correspond to coproduct injections.
+    All sum types can be seen as an extension of the coproduct. The value of sum
+    types can be extracted with pattern matching.
     
     With product and coproduct we can construct algebraic properties as a data
     types. For instance, distributive property of multiplication $x * (y + z) =
-    x * y + x * z$ can be presented with algebraic data types as $Product x
-    (Either y z) ~ Either (Product x y) (Product x z)$ up to isomorphism.
+    x * y + x * z$ can be presented with algebraic data types as
+    \lstinline|Product x (Either y z) ~ Either (Product x y) (Product x z)| up
+    to isomorphism.
 
     More precisely, almost every data structure can be defined with help of
-    product and coproduct. For example, a data type list, defined as $data List
-    a = Nil | Cons a (List a)$, uses both product and coproduct types. Data
-    constructor $Cons$ is an analogue to product type and $List$ is coproduct of
-    either $Nil$ or $Cons$.
+    product and coproduct. For example, a data type list, defined as
+    \lstinline{data List a = Nil | Cons a (List a)}, uses both product and
+    coproduct types. Data constructor \lstinline|Cons| is an analogue to product
+    type and \lstinline|List| is coproduct of either \lstinline|Nil| or \lstinline|Cons|.
 
     
 %------------------------------------------------------------
 
   \subsection{Functors}
-    Endofunctors such as $Maybe$ and $Either$ have many use cases in web
-    programming. As a functor $Maybe$ maps values from a category to either
-    $Nothing$ or $Just$ and is implemented simply as $data Maybe a = Nothing |
-    Just a$. Thus a $Maybe$ is an ideal structure to describe existence of a
-    value. In Web programming values, such as user inputs, and features, such as
-    HTML5 functions, might or might not exist which makes Web programs unsafe.
-    $Maybe$ can be used to describe the existence of value and enforce proper
-    error handling. For example picking the first element of an empty list
-    produces an undefined value which is likely to cause unwanted behavior later
-    in the execution chain. $List$'s first value can be presented with the help
-    of $Maybe$ endofunctor to enforce error handling. A function $safeHead ::
-    Array a \rightarrow Maybe a$ maps $a$ to a type $Maybe a$, which is an
-    example of mapping objects to another category with endofunctor. (TODO)
+    Endofunctors such as \lstinline|Maybe| and \lstinline|Either| have many use
+    cases in web programming. As a functor \lstinline|Maybe| maps values from a
+    category to either \lstinline|Nothing| or \lstinline|Just| and is
+    implemented simply as \lstinline{data Maybe a = Nothing | Just a}. Thus a
+    \lstinline|Maybe| is an ideal structure to describe existence of a value. In
+    Web programming values, such as user inputs, and features, such as HTML5
+    functions, might or might not exist which makes Web programs unsafe.
+    \lstinline|Maybe| can be used to describe the existence of value and enforce
+    proper error handling. For example picking the first element of an empty
+    list produces an undefined value which is likely to cause unwanted behavior
+    later in the execution chain. \lstinline|List|'s first value can be
+    presented with the help of \lstinline|Maybe| endofunctor to enforce error
+    handling. A function \lstinline|safeHead :: Array a -> Maybe a| maps
+    \lstinline|a| to a type \lstinline|Maybe a|, which is an example of mapping
+    objects to another category with endofunctor. (TODO)
 
     \[
       \begin{tikzcd}[row sep=huge, column sep=huge]
@@ -630,27 +637,32 @@ categories. TODO
       \end{tikzcd}
     \]
 
-    $safeHead$ function can be used for example when displaying the first user
-    from users list with function composition $safeHead <<< getUsers$, where
-    $getUsers$ is defined as $getUsers :: () \rightarrow [User]$. Thus
-    $safeHead$ is a mapping between two categories $User \rightarrow Maybe User$
-    with $Maybe$ endofunctor. The new type $Maybe User$ enforces to handle a
-    case where an empty array was returned from $getUsers$ and makes it easier
-    to reason about the program.
+    \lstinline|safeHead| function can be used for example when displaying the
+    first user from users list with function composition
+    \lstinline|safeHead <<< getUsers|, where \lstinline|getUsers| is defined as
+    \lstinline|getUsers :: () -> [User]|. Thus \lstinline|safeHead| is a mapping
+    between two categories \lstinline|User -> Maybe User| with \lstinline|Maybe|
+    endofunctor. The new type \lstinline|Maybe User| enforces to handle a case
+    where an empty array was returned from \lstinline|getUsers| and makes it
+    easier to reason about the program.
  
     Previous examples have presented mapping of objects to objects inside
     another category, but also morphisms can be mapped. Consider an Web
-    application with a search field and a morphism $getUserByName :: String
-    \rightarrow User$. When the search field is submitted the $getUserByName$
-    function will be invoked and returns a user. As before the user input can be
-    mapped to $Maybe$, $userInput :: Maybe String$, as there might not be any
-    user input. Now that the user input is of type $Maybe String$ the
-    $getUserByName$ cannot be used as such, but as functors need to preserve
-    structure a morphism can be lifted with $map :: Functor f => (a \rightarrow
-    b) \rightarrow f a \rightarrow f b$ and applied to the $userInput$ as follows. 
+    application with a search field and a morphism
+    \lstinline|getUserByName :: String -> User|. When the search field is
+    submitted the \lstinline|getUserByName| function will be invoked and returns
+    a user. As before the user input can be mapped to \lstinline|Maybe|,
+    \lstinline|userInput :: Maybe String|, as there might not be any user input.
+    Now that the user input is of type \lstinline|Maybe String| the
+    \lstinline|getUserByName| cannot be used as such, but as functors need to
+    preserve structure a morphism can be lifted with
+    \lstinline|map :: Functor f => (a -> b) -> f a -> f b| and applied to the
+    \lstinline|userInput| as follows. 
 
-    user :: Maybe User
-    user = map getUserByName userInput
+    \begin{lstlisting}[language=Haskell]
+      user :: Maybe User
+      user = map getUserByName userInput
+    \end{lstlisting}
 
     Furthermore additional morphisms, such as getting the name of the user, can
     be mapped by just lifting more functions with map and providing the result
@@ -658,22 +670,24 @@ categories. TODO
  
     In addition to mapping objects and morphisms a functor needs to preserve
     identity and composition morphisms thus a function composition of any two
-    functions $a$ and $b$, $a <<< b$, can be mapped multiple ways. For example,
-    composition of functions $toUpper$ and $trim$ can be mapped such as $map
-    toUpper <<< map trim$ or $map (toUpper <<< trim)$. Functor laws provide a
-    powerful tool to reason and refactor application code as functions can be
-    interchanged based on the laws.
+    functions \lstinline|a| and \lstinline|b|, \lstinline|a <<< b|, can be
+    mapped multiple ways. For example, composition of functions
+    \lstinline|toUpper| and \lstinline|trim| can be mapped such as
+    \lstinline|map toUpper <<< map trim| or \lstinline|map (toUpper <<< trim)|.
+    Functor laws provide a powerful tool to reason and refactor application code
+    as functions can be interchanged based on the laws.
 
     In web programming there often exists a requirement to communicate with
     backend service(s). As a result responses from external services need to
     parsed in order to further process the data. The parsing might fail if the
     given message was invalid. This can be avoided by mapping the message to
-    another category with $Either$ functor. Consider a case where JSON string is
-    parsed to further process the data with a mapping from $String \rightarrow
-    Either String Json$. Functor $Either$ contains either an error message of
-    type $String$ or a successfully parsed message of type $Json$. Again knowing
-    that $Either$ is a functor, it follows certain laws and morphisms can be
-    lifted with $map$ function.
+    another category with \lstinline|Either| functor. Consider a case where JSON
+    string is parsed to further process the data with a mapping from
+    \lstinline|String -> Either String Json|. Functor \lstinline|Either|
+    contains either an error message of type \lstinline|String| or a
+    successfully parsed message of type \lstinline|Json|. Again knowing that
+    \lstinline|Either| is a functor, it follows certain laws and morphisms can
+    be lifted with \lstinline|map| function.
 
 
 %------------------------------------------------------------
@@ -683,17 +697,19 @@ categories. TODO
     but in order to compose functors there has to exist mappings between them.
     Natural transformation can be used to transform a functor to a another
     functor. Previously mapping of objects was presented with a function
-    $safeHead :: Array a \rightarrow Maybe a$. If the function’s type signature
-    is changed to $safeHead :: List a \leadsto Maybe a$ there exists a natural
-    transformation between functors $List$ and $Maybe$. In categorical terms an
-    object $a$ is mapped to $List a$ with $List$ functor and to $Maybe a$ with
-    $Maybe$ functor and there exists a natural transformation between $List a$
-    and $Maybe a$.
+    \lstinline|safeHead :: Array a -> Maybe a|. If the function’s type signature
+    is changed to \lstinline|safeHead :: List a ~> Maybe a| there exists a
+    natural transformation between functors \lstinline|List| and
+    \lstinline|Maybe|. In categorical terms an object \lstinline|a| is mapped to
+    \lstinline|List a| with \lstinline|List| functor and to \lstinline|Maybe a| with
+    \lstinline|Maybe| functor and there exists a natural transformation between
+    \lstinline|List a| and \lstinline|Maybe a|.
 
     Consider another example of natural transformation where data is searched
-    with endofunctor $Maybe String$ and asynchronous effect functor $Aff$ which
-    encapsulates the search request. In order to execute the search request a
-    natural transformation from $Maybe String \rightarrow Aff e a$ has to exist.
+    with endofunctor \lstinline|Maybe String| and asynchronous effect functor
+    \lstinline|Aff| which encapsulates the search request. In order to execute
+    the search request a natural transformation from
+    \lstinline|Maybe String -> Aff e a| has to exist.
 
 More examples of natural transformations?
 
@@ -703,31 +719,39 @@ More examples of natural transformations?
     Function composition is a powerful tool to reason programs. Embellished
     functions, such as functions which return a value wrapped inside an
     endofunctor, can be composed with monads. The previously presented function
-    $getUserByName :: String \rightarrow User$ was used to showcase mapping of
+    \lstinline|getUserByName :: String -> User| was used to showcase mapping of
     morphisms with a functor. To be precise the type signature of the
-    $getUserByName$ function needs to be changed to $getUserByName :: String
-    \rightarrow Maybe User$ as a user might not be found with every possible
-    input value. Using this new function would lead into a following scenario.
+    \lstinline|getUserByName| function needs to be changed to
+    \lstinline|getUserByName :: String -> Maybe User| as a user might not be
+    found with every possible input value. Using this new function would lead
+    into a following scenario.
  
-    user :: Maybe (Maybe User)
-    user = map getUserByName userInput
+    \begin{lstlisting}[language=Haskell]
+      user :: Maybe (Maybe User)
+      user = map getUserByName userInput
+    \end{lstlisting}
  
-    The user value would be a $Maybe$ wrapped inside a $Maybe$. In category
-    theory such a type is expressed as $T^2$. The $getUserByName$ is now an
-    embellished function and $Maybe$ is a monad, thus monad’s natural
-    transformation $\mu : T^2 \rightarrow T$ can be used to flatten the $Maybe
-    (Maybe User)$ structure into a $Maybe User$. In PureScript the natural
-    transformation $\mu$ is called $join$.
+    The user value would be a \lstinline|Maybe| wrapped inside a
+    \lstinline|Maybe|. In category theory such a type is expressed as $T^2$. The
+    \lstinline|getUserByName| is now an embellished function and
+    \lstinline|Maybe| is a monad, thus monad’s natural transformation $\mu : T^2
+    \rightarrow T$ can be used to flatten the \lstinline|Maybe (Maybe User)|
+    structure into a \lstinline|Maybe User|. In PureScript the natural
+    transformation $\mu$ is called \lstinline|join|.
  
-    user :: Maybe User
-    user = join \$ map getUserByName userInput
+    \begin{lstlisting}[language=Haskell]
+      user :: Maybe User
+      user = join $ map getUserByName userInput
+    \end{lstlisting}
  
-    Additionally a $bind :: forall a b. m a \rightarrow (a \rightarrow m b)
-    \rightarrow m b$, also known as $>>=$, can be applied for more convenient syntax.
+    Additionally a \lstinline|bind :: forall a b. m a -> (a -> m b) -> m b|,
+    also known as \lstinline|>>=|, can be applied for more convenient syntax.
  
-    user :: Maybe User
-    user = userInput >>= getUserByName
- 
+    \begin{lstlisting}[language=Haskell]
+      user :: Maybe User
+      user = userInput >>= getUserByName
+    \end{lstlisting}
+
     Using Aff monad for asynchronous computations. Continue below
 
 %------------------------------------------------------------
@@ -735,34 +759,42 @@ More examples of natural transformations?
     \subsubsection{Eff and Aff Monad}
       As PureScript obeys laws of functional programming, it does not have
       impure side-effects. Instead, side-effects are executed through concept
-      called effects. Some examples of side-effects are console $IO$, random
+      called effects. Some examples of side-effects are console IO, random
       number generation, exceptions, local storage, XMLHttpRequest and DOM
       manipulation.
 
-      $Eff$ monad enables pure execution context for side-effects. With help of
-      effect monad the function $getUserByName$ can now be rewritten to return
-      the user data from local storage. The definition of $getUserByName$ is
-      updated to
+      \lstinline|Eff| monad enables pure execution context for side-effects.
+      With help of effect monad the function \lstinline|getUserByName| can now
+      be rewritten to return the user data from local storage. The definition of
+      \lstinline|getUserByName| is updated to
 
-      $getUserByName :: forall eff. String -> Eff (dom :: DOM | eff) (Maybe User)$
+      \begin{lstlisting}[language=Haskell]
+        getUserByName :: forall eff. String 
+                        -> Eff (dom :: DOM | eff) (Maybe User)
+      \end{lstlisting}
  
-      $Eff$ type takes two type parameters from which the first is a row of
-      effects and the second describes the return type of the $Eff$ monad. Here
-      $Eff$ monad encapsulates side-effect interaction with $localStorage$ which
-      is defined as a part of DOM effect. As a result of the side-effect
-      computation the function $getUserByName$ returns $Maybe User$, just as before.
+      \lstinline|Eff| type takes two type parameters from which the first is a
+      row of effects and the second describes the return type of the
+      \lstinline|Eff| monad. Here \lstinline|Eff| monad encapsulates side-effect
+      interaction with \lstinline|localStorage| which is defined as a part of
+      DOM effect. As a result of the side-effect computation the function
+      \lstinline|getUserByName| returns \lstinline|Maybe User|, just as before.
  
-      $Eff$ monad enables the modeling of side effects in type level. As a
-      benefit used side-effects can be restricted in type level and
+      \lstinline|Eff| monad enables the modeling of side effects in type level.
+      As a benefit used side-effects can be restricted in type level and
       side-effectful computations can be easily distinguished from pure
-      computations. In addition, $Eff$ has all the benefits of a monad category.
+      computations. In addition, \lstinline|Eff| has all the benefits of a monad
+      category.
  
       Some of the side-effects have asynchronous nature. A common way to handle
       asynchronous computation is to introduce success and failure callbacks.
  
-      getUserByName :: forall eff. String -> (Error -> Eff (dom :: DOM | eff)
-      Unit) -> (User -> Eff (dom :: DOM | eff) Unit) -> Eff (dom :: DOM | eff)
-      Unit
+      \begin{lstlisting}[language=Haskell]
+        getUserByName :: forall eff. String 
+                        -> (Error -> Eff (dom :: DOM | eff) Unit) 
+                        -> (User -> Eff (dom :: DOM | eff) Unit)
+                        -> Eff (dom :: DOM | eff) Unit
+      \end{lstlisting}
  
       However, this method easily leads into situation called callback hell when
       composing multiple asynchronous effects. Composition of asynchronous
@@ -778,7 +810,8 @@ More examples of natural transformations?
       user over XmlHttpRequest.
 
       \begin{lstlisting}[language=Haskell]
-      getUserByName :: forall eff. String -> Async (http :: HTTP | eff) (Either Error User)
+        getUserByName :: forall eff. String 
+                        -> Async (http :: HTTP | eff) (Either Error User)
       \end{lstlisting}
  
       As in case of \lstinline|Eff| monad, the operation of asynchronous
