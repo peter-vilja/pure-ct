@@ -509,7 +509,6 @@ implementations of these concepts in programming languages.
 % ------------------------------------------------------------
 
   \subsection{Monad}
-    TODO mention kleisli category
     Monad, also known as triple, is all about composition. It is an endofunctor
     with two natural transformations $\eta : I_T \rightarrow T$ and $\mu : T^2
     \rightarrow T$ where $T$ is an endofunctor in an arbitrary category $C$,
@@ -587,8 +586,9 @@ implementations of these concepts in programming languages.
       \end{tikzcd}
     \end{equation}
 
-    In Haskell (TODO in purescript? pure and join?) natural transformations $\eta$ and $\mu$ are known as
-    \lstinline|return| and \lstinline|join|. \lstinline|Maybe|,
+    In Haskell natural transformations $\eta$ and $\mu$ are known as
+    \lstinline|return| and \lstinline|join| and in PureScript they are known as
+    \lstinline|pure| and \lstinline|join|. \lstinline|Maybe|,
     \lstinline|Either|, \lstinline|IO|, \lstinline|Reader|, \lstinline|Writer|
     and \lstinline|State| are examples of popular monads used in programming.
 
