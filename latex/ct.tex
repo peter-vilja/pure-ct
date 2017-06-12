@@ -383,18 +383,20 @@ implementations of these concepts in programming languages.
     \cite{computational, barr1990category, mac2013categories}. A functor $F: A
     \rightarrow B$ preserves the structure of a category by having a mapping
     from objects of a category $A$ to objects of a category $B$ ($F: a
-    \rightarrow F(a)$) and mapping from morphisms of $A$ to morphisms of $B$
-    ($F: (f: a \rightarrow b) \rightarrow F(f): F(a) \rightarrow F(b)$). The
-    mapping of objects and morphisms are presented in TODO. The mappings must
-    satisfy following rules to preserve composition and identity morphisms.
+    \rightarrow F\, a$) and mapping from morphisms of $A$ to morphisms of $B$
+    ($F: (f: a \rightarrow b) \rightarrow F\, f: F\, a \rightarrow F\, b$). The
+    mapping of objects and morphisms are presented in commutative diagram
+    \ref{functor}. The mappings must satisfy following rules to preserve
+    composition and identity morphisms.
 
     \begin{itemize}
-      \item $F(g \circ f) = F(g) \circ F(f)$, when a category $A$ contains any
+      \item $F(g \circ f) = F\, g \circ F\, f$, when a category $A$ contains any
         composition of any morphisms $g$ and $f$, $g \circ f$.
-      \item $F(id_a) = id_{F(a)}$
+      \item $F(id_a) = id_{F\, a}$
     \end{itemize}
 
-    \[
+    \begin{equation}
+      \label{functor}
       \begin{tikzcd}[row sep=huge, column sep=huge]
         & a \arrow[d, "f"] \arrow[dl, "g\, \circ\, f"] \arrow[r, "F"] \arrow[loop, distance=2em, in=60, out=120, "id_a"]
         &[5em] F\, a \arrow[d, "F\, f"'] \arrow[dr, "F\, (g\, \circ\, f)"]
@@ -405,16 +407,16 @@ implementations of these concepts in programming languages.
         & F\, b \arrow[r, "F\, g"]
         & F\, c \\
       \end{tikzcd}
-    \]
+    \end{equation}
 
     Therefore, a functor needs to preserve all connections between objects from
     the source category, although there is no requirement for the resulting
     target category to obtain the same amount of morphisms thus multiple
     morphisms can be presented as a single morphism \cite{computational,
       barr1990category}. More precisely a functor is called as a faithful
-    functor when the function between $hom_A(a, b)$ and $hom_B(F(a), F(b))$ for
+    functor when the function between $hom_A(a, b)$ and $hom_B(F\, a, F\, b)$ for
     each $a, b \in A$ is injective. Similarly, a functor is called as a full
-    functor when the function between $hom_A(a, b)$ and $hom_B(F(a), F(b))$ for
+    functor when the function between $hom_A(a, b)$ and $hom_B(F\, a, F\, b)$ for
     each $a, b \in A$ is surjective. A functor can also be full and faithful at
     the same time.
  
@@ -437,17 +439,18 @@ implementations of these concepts in programming languages.
     objects from functors together. Thus if we have two functors $F: A
     \rightarrow B$ and $G: A \rightarrow B$ then a natural transformation
     $\alpha: F \rightarrow G$ maps each object in a category $A$ a morphism
-    between resulting objects $F a$ and $G a$ in $B$ from hom-set $hom_B(F(a),
-    G(a))$. More formally $\alpha_a: F(a) \rightarrow G(a)$. Additionally
+    between resulting objects $F\, a$ and $G\, a$ in $B$ from hom-set $hom_B(F\, a,
+    G\, a)$. More formally $\alpha_a: F\, a \rightarrow G\, a$. Additionally
     natural transformation $\alpha$ has to follow naturality condition where for
     every morphism $f: a \rightarrow b$ in category $A$ there has to be equal
-    compositions $\alpha_b \circ F(f) = G(f) \circ \alpha_a$
+    compositions $\alpha_b \circ F\, f = G\, f \circ \alpha_a$
     \cite{barr1990category, computational, eilenberg1945general}. That is, for
     every two objects $a$ and $b$ in a category $A$ which are connected with at
-    least a single morphism we have the following commuting diagram TODO with a
-    naturality square that needs to commute.
+    least a single morphism we have the following commutative diagram
+    \ref{natural} with a naturality square that needs to commute.
     
-    \[
+    \begin{equation}
+      \label{natural}
       \begin{tikzcd}[column sep=huge]
         a \arrow[r, "F"] \arrow[d, "f"] \arrow[ddr, "G"]
         &[7em] F\, a \arrow[dd, "\alpha_a"] \arrow[dr, "F\, f"]
@@ -462,11 +465,11 @@ implementations of these concepts in programming languages.
         &
         & G\, b \\
       \end{tikzcd}
-    \]
+    \end{equation}
 
     Similarly to a functor a natural transformation has to preserve the
     structure of a category. By definition the structure is preserved by
-    preserving morphism between the object $F(a) \rightarrow G(a)$ and having a
+    preserving morphism between the object $F\, a \rightarrow G\, a$ and having a
     commuting diagram of every morphism between two objects in the source
     category. Additionally, as functors, a natural transformation can collapse
     morphisms from a category $A$ to a single morphism in category $B$. Natural
