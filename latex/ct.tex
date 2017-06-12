@@ -254,17 +254,18 @@ implementations of these concepts in programming languages.
     equal \cite{barr1990category, pierce1991basic}. In other words, there exists
     exactly one morphism from $a$ to $b$. A category can have multiple initial
     objects. In category of Set the initial object is an universal construction
-    of an empty set ${}$ in terms of category theory and it is the only initial
+    of an empty set $\emptyset$ in terms of category theory and it is the only initial
     object for every Set \cite{barr1990category, pierce1991basic}.
 
-    \[
+    \begin{equation}
+      \label{initial}
       \begin{tikzcd}[row sep=huge, column sep=huge]
         & a \\
         Void \arrow[ur, "absurd"]
         \arrow[loop right, distance=2em, "id_{void}"]
         & 
       \end{tikzcd}
-    \]
+    \end{equation}
 
 % ------------------------------------------------------------
 
@@ -280,13 +281,14 @@ implementations of these concepts in programming languages.
     of singleton set in terms of category theory. Furthermore, each singleton
     set is a terminal object \cite{barr1990category, pierce1991basic}.
 
-    \[
+    \begin{equation}
+      \label{terminal}
       \begin{tikzcd}[row sep=huge, column sep=huge]
         & () \\
         a \arrow[ur, "unit_a"]
         & Void \arrow[u, "unit_{void}"']
       \end{tikzcd}
-    \]
+    \end{equation}
    
 % ------------------------------------------------------------
 
