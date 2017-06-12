@@ -277,7 +277,8 @@ implementations of these concepts in programming languages.
     morphism $f$ from the object $b$ to the terminal object $a$) and for every
     two morphisms $f: b \rightarrow a$, $g: b \rightarrow a$ have to be equal
     \cite{barr1990category, pierce1991basic}. In other words, there exists
-    exactly one morphism from $b$ to $a$. A category can have multiple terminal
+    exactly one morphism from $b$ to $a$. Commutative diagram \ref{terminal} of
+    a terminal object $a$ can be found below. A category can have multiple terminal
     objects. In category of Set the terminal object is an universal construction
     of singleton set in terms of category theory. Furthermore, each singleton
     set is a terminal object \cite{barr1990category, pierce1991basic}.
@@ -285,8 +286,8 @@ implementations of these concepts in programming languages.
     \begin{equation}
       \label{terminal}
       \begin{tikzcd}[row sep=huge, column sep=huge]
-        & () \\
-        a \arrow[ur, "unit_a"]
+        & a \arrow[loop right, distance=2em, "id_{a}"] \\
+        b \arrow[ur, "unit_b"]
         & Void \arrow[u, "unit_{void}"']
       \end{tikzcd}
     \end{equation}
