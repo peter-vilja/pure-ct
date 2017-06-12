@@ -314,20 +314,21 @@ implementations of these concepts in programming languages.
     objects in the category that have morphisms to $A$ and $B$ objects thus
     object $A \times B$ is a terminal object in a category of all product candidates.  
 
-    \[
+    \begin{equation}
+      \label{product}
       \begin{tikzcd}[row sep=huge, column sep=huge]
-        & c' \arrow[d, dashed, "m"]
+        & C' \arrow[d, dashed, "m"]
         \arrow[ddl, "p'"']
         \arrow[ddr, "q'"]
         & \\
-        & c \arrow[dl, "p"]
+        & C \arrow[dl, "p"]
         \arrow[dr, "q"']
         & \\
-        [-2em] a
+        [-2em] A
         &
-        & b
+        & B
       \end{tikzcd}
-    \]
+    \end{equation}
 
     Product is usually presented as a tuple in most programming languages and it
     is denoted with parenthesis and comma. For example \lstinline|(a, b)| is a
