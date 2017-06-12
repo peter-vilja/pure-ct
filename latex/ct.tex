@@ -356,10 +356,12 @@ implementations of these concepts in programming languages.
     injection morphisms $i : A \rightarrow A \amalg B$ and $j : B \rightarrow A
     \amalg B$ that belongs to category $C$. In addition, universal construction
     defines that there exists an unique morphism $m$ from $A \amalg B$ to every
-    other candidate of $A \amalg B$ such that $m \circ i = i'$ and $m \circ j =
-    j'$. Where $i' : A \rightarrow C$ and $j' : B \rightarrow C$
+    other candidate of $A \amalg B$ called $C$, such that $m \circ i = i'$ and
+    $m \circ j = j'$. Where $i' : A \rightarrow C$ and $j' : B \rightarrow C$
     \cite{barr1990category, pierce1991basic}. Object $A \amalg B$ is an initial
-    object in a category of all coproduct candidates.
+    object in a category of all coproduct candidates \cite{pierce1991basic}.
+    Morphisms and objects of coproduct can be found below in form of commutative
+    diagram \ref{coproduct}.
 
     \begin{equation}
       \label{coproduct}
@@ -369,9 +371,9 @@ implementations of these concepts in programming languages.
         &
         & B \arrow[dl, "j"']
         \arrow[ddl, "j'"] \\
-        [-2em] & C \arrow[d, dashed, "m"]
+        [-2em] & A \amalg B \arrow[d, dashed, "m"]
         & \\
-        & C'
+        & C
         &
       \end{tikzcd}
     \end{equation}
