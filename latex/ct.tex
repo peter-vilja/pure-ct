@@ -192,7 +192,7 @@ implementations of these concepts in programming languages.
     category theory and they are defined for any category \cite{barr1990category}.
 
     A morphism $f: B \rightarrow C$ in category $D$ is a \textbf{monomorphism}
-    if $\forall A. \forall g, h: A \rightarrow B. f \circ g = f \circ h
+    if $\forall A.\,\forall g, h: A \rightarrow B.\,f \circ g = f \circ h
     \Rightarrow g = h$ \cite{barr1990category, pierce1991basic}. In other words,
     a morphism $f$ is a monomorphism if any two morphisms from any type $A$ to
     $B$ composed with morphism $f$ are equal. Monomorphism is categorical
@@ -200,7 +200,7 @@ implementations of these concepts in programming languages.
     \cite{barr1990category, pierce1991basic}.
 
     A morphism $f: A \rightarrow B$ in category $D$ is an \textbf{epimorphism}
-    if $\forall C. \forall g, h: B \rightarrow C. g \circ f = h \circ f
+    if $\forall C.\,\forall g, h: B \rightarrow C.\,g \circ f = h \circ f
     \Rightarrow g = h$ \cite{barr1990category, pierce1991basic}. In other words,
     a morphism $f$ is an epimorphism if morphism $f$ composed with any two
     morphisms from $B$ to any type $C$ are equal. Epimorphism is categorical
@@ -247,7 +247,7 @@ implementations of these concepts in programming languages.
 
   \subsubsection{Initial object}
     An object $a$ in category $C$ is \textbf{an initial object} if $\forall b \in
-    C. \exists f: a \rightarrow b$ (for every object $b$ in category $C$ there
+    C.\,\exists f: a \rightarrow b$ (for every object $b$ in category $C$ there
     exists a morphism $f$ from initial object $a$ to the object $b$) and every
     two morphisms $f: a \rightarrow b$, $g: a \rightarrow b$ have to be
     equal \cite{barr1990category, pierce1991basic}. In other words, there exists
@@ -271,7 +271,7 @@ implementations of these concepts in programming languages.
 
   \subsubsection{Terminal object}
     Terminal object of a category is the dual of initial object. An object $a$
-    in category $C$ is \textbf{a terminal object} if $\forall b \in C. \exists
+    in category $C$ is \textbf{a terminal object} if $\forall b \in C.\,\exists
     f: b \rightarrow a$ (for every object $b$ in category $C$ there exists a
     morphism $f$ from the object $b$ to the terminal object $a$) and for every
     two morphisms $f: b \rightarrow a$, $g: b \rightarrow a$ have to be equal
@@ -500,10 +500,10 @@ implementations of these concepts in programming languages.
     object. Thus morphisms in a monoid are endomorphisms which are morphisms
     from an object to itself. Monoid has to have an associative binary operator,
     for example multiplication $(a * b) * c = a * (b * c)$. Additionally a
-    monoid has an unit element $\exists u \forall a. B(a,u) = B(u,a) = a$ ($B$ is
-    the binary operator) which does not have any effect in the binary operation.
-    For example if the binary operator is again a multiplication function which
-    operates on integers a unit element is 1.
+    monoid has an unit element $\exists u\,\forall a.\, B(a,u) = B(u,a) = a$ ($B$
+    is the binary operator) which does not have any effect in the binary
+    operation. For example if the binary operator is again a multiplication
+    function which operates on integers a unit element is 1.
 
 % ------------------------------------------------------------
 
