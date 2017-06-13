@@ -124,7 +124,7 @@ implementations of these concepts in programming languages.
     barr1990category, mac2013categories}. They describe how objects are
   connected in a category and there can be any number of morphisms between two
   objects \cite{barr1990category, computational}. For example, two objects can
-  be connected with infinite amount of morphisms or there could be no morphisms
+  be connected with an infinite amount of morphisms or there could be no morphisms
   between the objects. Morphisms with domain $a$ and codomain $b$ in a category
   $C$ belong to a \textbf{hom-set} $hom_C(a, b)$ \cite{barr1990category,
     mac2013categories}. A category can contain infinite amount of objects and
@@ -133,7 +133,7 @@ implementations of these concepts in programming languages.
   category \cite{computational}. Identity, composability and abstraction
   are important features of a category \cite{awodey2006category,
     barr1990category}. A category can be thought as a graph with an identity
-  and composition properties, where morphisms (edges) connect objects (nodes)
+  and composition properties, where morphisms (edges) connects objects (nodes)
   \cite{barr1990category}.
 
 %------------------------------------------------------------
@@ -143,15 +143,15 @@ implementations of these concepts in programming languages.
     morphism, also known as $id_a: a \rightarrow a$ \cite{mac2013categories,
       computational}. For identity morphism domain and codomain are equal $dom(a)
     = a = cod(a)$ \cite{mac2013categories}. Identity morphism $id_a$ acts as an
-    identity when morphisms are composed. Additionally in a category for every
-    morphism $f$ there has to exist Left and Right identity. Thus we can compose
-    identity morphism to both sides of a composition with another morphism. In
-    Left identity we compose a morphism $f: a \rightarrow b$ with an identity
-    morphism $id_b$ such that $id_b \circ f = f$ \cite{barr1990category,
-      computational}. The identity morphism $id_b$ has no effect on the
-    resulting composed morphism and thus $id_b \circ f$ and $f$ are equal.
-    Similarly in Right identity we compose a morphism $g: a \rightarrow b$ with
-    an identity morphism $id_a$ such that $g \circ id_a = g$
+    identity when morphisms are composed. Additionally, for every morphism $f$,
+    in a category $C$, there has to exist Left and Right identity. Thus we can
+    compose identity morphism to both sides of a composition with another
+    morphism. In Left identity we compose a morphism $f: a \rightarrow b$ with
+    an identity morphism $id_b$ such that $id_b \circ f = f$
+    \cite{barr1990category, computational}. The identity morphism $id_b$ has no
+    effect on the resulting composed morphism and thus $id_b \circ f$ and $f$
+    are equal. Similarly in Right identity we compose a morphism $g: a
+    \rightarrow b$ with an identity morphism $id_a$ such that $g \circ id_a = g$
     \cite{barr1990category, computational}. Additionally the identity morphism
     $id_a$ has no effect therefore $g \circ id_a$ and $g$ are equal.
  
@@ -172,15 +172,15 @@ implementations of these concepts in programming languages.
     \rightarrow b$, $g: b \rightarrow c$ and $g \circ f: a \rightarrow c$
     \cite{mac2013categories}. As morphisms need to be associative $h \circ (g
     \circ f)$ must always be equal with $(h \circ g) \circ f$ where $f$ and $g$
-    are as before and $h: c \rightarrow d$ \cite{awodey2006category,
+    are same as before and $h: c \rightarrow d$ \cite{awodey2006category,
       barr1990category, eilenberg1945general, mac2013categories, computational}.
  
     $Set_{Rel}$, for example, is a category which contains sets as
-    objects and relations between sets as morphism where a relation is a subset
+    objects and relations between sets as morphisms where a relation is a subset
     of cartesian product of two sets \cite{computational}. Also another slightly
-    different category is just Set category where objects are sets and morphisms
+    different category is just a Set category where objects are sets and morphisms
     are total functions \cite{barr1990category, computational}. A total function
-    is a function which is defined for all possible arguments. In programming a
+    is a function which is defined for all possible arguments. In programming, a
     category is usually presented using types and morphisms with functions
     \cite{computational}.
 
@@ -196,7 +196,7 @@ implementations of these concepts in programming languages.
     \Rightarrow g = h$ \cite{barr1990category, pierce1991basic}. In other words,
     a morphism $f$ is a monomorphism if any two morphisms from any type $A$ to
     $B$ composed with morphism $f$ are equal. Monomorphism is categorical
-    analogue to injective function in the Set theory in category of Set
+    analogue to injective function in the Set theory in a category of Set
     \cite{barr1990category, pierce1991basic}.
 
     A morphism $f: A \rightarrow B$ in category $D$ is an \textbf{epimorphism}
@@ -204,17 +204,17 @@ implementations of these concepts in programming languages.
     \Rightarrow g = h$ \cite{barr1990category, pierce1991basic}. In other words,
     a morphism $f$ is an epimorphism if morphism $f$ composed with any two
     morphisms from $B$ to any type $C$ are equal. Epimorphism is categorical
-    analogue to surjective function in the Set theory in category of Set
+    analogue to surjective function in the Set theory in a category of Set
     \cite{barr1990category, pierce1991basic}.
 
     A morphism $f: A \rightarrow B$ in category $D$ is an \textbf{isomorphism}
     if there exists an inverse morphism $f^{-1}: B \rightarrow A$ and
     compositions $f^{-1} \circ f$ and $f \circ f^{-1}$ equals $id_A$ and $id_B$
     respectively \cite{barr1990category, pierce1991basic}. If isomorphism exists
-    between objects $A$ and $B$, they are isomorphic. Hereby, these two objects
-    are equal up to isomorphism \cite{pierce1991basic}. Commutative diagram
-    \ref{isomorphism} presents isomorphism in terms of morphisms $f$, $f^{-1}$,
-    $id_A$ and $id_B$.
+    between objects $A$ and $B$, they are \textbf{isomorphic}. Hereby, these two
+    objects are equal up to isomorphism \cite{pierce1991basic}. Commutative diagram
+    \ref{isomorphism} presents isomorphism between objects $a$ and $b$ in terms
+    of morphisms $f$, $f^{-1}$, $id_A$ and $id_B$.
 
     \begin{equation}
       \label{isomorphism}
@@ -335,15 +335,15 @@ implementations of these concepts in programming languages.
 
     Product is usually presented as a tuple in most programming languages and it
     is denoted with parenthesis and comma. For example \lstinline|(a, b)| is a
-    common presentation of tuple in most programming languages. Product type is
-    called an algebraic data type as it behaves like a multiplication and it
-    obeys algebraic laws up to isomorphism. Product is symmetric up to
-    isomorphism. Types \lstinline|(a, b)| and \lstinline|(b, a)| are not the
-    same but they preserve the same structure. An isomorphism between
-    \lstinline|(a, b)| and \lstinline|(b, a)| is commonly defined with a
-    function called \lstinline|swap|. A product is also associative up to
-    isomorphism. Product type also has a unit type \lstinline|()| up to
-    isomorphism and thus it obeys algebraic laws of monoid \cite{barr1990category}.
+    common presentation of tuple. Product type is called an algebraic data type
+    as it behaves like a multiplication and it obeys algebraic laws up to
+    isomorphism. Product is symmetric up to isomorphism, types
+    \lstinline|(a, b)| and \lstinline|(b, a)| are not the same but they preserve
+    the same structure. An isomorphism between \lstinline|(a, b)| and \lstinline|(b, a)|
+    is commonly defined with a function called \lstinline|swap| and a product is
+    also associative up to isomorphism. Product type also has an unit type
+    \lstinline|()| up to isomorphism and thus it obeys algebraic laws of monoid
+    \cite{barr1990category}.
 
 % ------------------------------------------------------------
 
@@ -384,11 +384,11 @@ implementations of these concepts in programming languages.
 % ------------------------------------------------------------
 
   \subsection{Functor}
-    Functors are mappings, also known morphisms, between categories
+    Functors are mappings, also known as morphisms, between categories
     \cite{barr1990category, mac2013categories, computational}. A functor $F: A
     \rightarrow B$ preserves the structure of a category by having a mapping
     from objects of a category $A$ to objects of a category $B$ ($F: a
-    \rightarrow F\, a$) and mapping from morphisms of $A$ to morphisms of $B$
+    \rightarrow F\, a$) and a mapping from morphisms of $A$ to morphisms of $B$
     ($F: (f: a \rightarrow b) \rightarrow F\, f: F\, a \rightarrow F\, b$). The
     mapping of objects and morphisms are presented in commutative diagram
     \ref{functor}. The mappings must satisfy following rules to preserve
@@ -502,8 +502,8 @@ implementations of these concepts in programming languages.
     for example multiplication $(a * b) * c = a * (b * c)$. Additionally a
     monoid has an unit element $\exists u\,\forall a.\, B(a,u) = B(u,a) = a$ ($B$
     is the binary operator) which does not have any effect in the binary
-    operation. For example if the binary operator is again a multiplication
-    function which operates on integers a unit element is 1.
+    operation. For example, if the binary operator is a multiplication function
+    which operates on integers a unit element is 1.
 
 % ------------------------------------------------------------
 
@@ -614,19 +614,19 @@ theory can be applied in Web programming with PureScript.
     \lstinline|Tuple a b| and \lstinline|Tuple b a| is defined with a function
     called \lstinline|swap|.
     
-    In PureScript canonical presentation of the coproduct is sum type
+    In PureScript canonical presentation of the coproduct is the sum type
     \lstinline{data Either a b = Left a | Right b}. Where constructors
     \lstinline|Left| and \lstinline|Right| correspond to coproduct injections.
     All sum types can be seen as an extension of the coproduct. The value of a
     sum type can be extracted with pattern matching.
     
     With product and coproduct we can construct algebraic properties as data
-    types. For instance, distributive property of multiplication $x * (y + z) =
-    x * y + x * z$ can be presented with algebraic data types as
+    types. For instance, distributive property of multiplication $x\,*\,(y\,+\,z) =
+    x\,*\,y\,+\,x\,*\,z$ can be presented with algebraic data types as
     \lstinline|Product x (Either y z) ~ Either (Product x y) (Product x z)| up
     to isomorphism.
 
-    Moreover almost every data structure can be defined with the help of
+    Moreover, almost every data structure can be defined with the help of
     product and coproduct. For example a data type \lstinline|List|, defined as
     \lstinline{data List a = Nil | Cons a (List a)}, uses both product and
     coproduct types. Data constructor \lstinline|Cons| is an analogue to product
@@ -662,7 +662,7 @@ theory can be applied in Web programming with PureScript.
     \end{equation}
 
     \lstinline|safeHead| function can be used for example when displaying the
-    first user from users list with function composition
+    first user from a list of users with function composition
     \lstinline|safeHead <<< getUsers|, where \lstinline|getUsers| is defined as
     \lstinline|getUsers :: () -> [User]|. Thus \lstinline|safeHead| is a mapping
     between two categories \lstinline|User -> Maybe User| with \lstinline|Maybe|
@@ -707,7 +707,7 @@ theory can be applied in Web programming with PureScript.
     be mapped by just lifting more functions with map as mapping an endofunctor
     returns the same endofunctor.
  
-    In addition to mapping of objects and morphisms a functor needs to preserve
+    In addition to mapping of objects and morphisms, a functor needs to preserve
     identity and composition morphisms thus a function composition of any two
     functions \lstinline|a| and \lstinline|b|, \lstinline|a <<< b|, can be
     mapped multiple ways. For example, composition of functions
@@ -718,7 +718,7 @@ theory can be applied in Web programming with PureScript.
 
     In Web programming there often exists a requirement to communicate with
     backend service(s). As a result responses from external services need to be
-    parsed in order to further process the data. The parsing might fail if the
+    parsed in order to further process the data, the parsing might fail if the
     given message was invalid. This can be avoided by mapping the message to
     another category with \lstinline|Either| functor. Consider a case where JSON
     string is parsed to further process the data with a mapping from
@@ -754,8 +754,8 @@ theory can be applied in Web programming with PureScript.
 
   \subsection{Monads}
     Function composition is a powerful tool to reason programs. Embellished
-    functions, such as functions which return a value wrapped inside an
-    endofunctor, can be composed with monads. The previously presented function
+    functions, which return a value wrapped inside an endofunctor, can be
+    composed with monads. The previously presented function
     \lstinline|getUserByName :: String -> User| was used to showcase mapping of
     morphisms with a functor. To be precise the type signature of the
     \lstinline|getUserByName| function needs to be changed to
@@ -792,11 +792,11 @@ theory can be applied in Web programming with PureScript.
 %------------------------------------------------------------
 
     \subsubsection{Eff and Aff Monad}
-      As PureScript obeys laws of functional programming thus it does not have
-      impure side-effects but instead side-effects are executed through a concept
-      called effects. Some examples of side-effects are console IO, random
-      number generation, exceptions, local storage, XMLHttpRequest and DOM
-      manipulation.
+      PureScript obeys laws of functional programming and it does not have
+      impure side-effects. In order to execute a side-effect, PureScript
+      presents a concept called effects. Some examples of side-effects are
+      console IO, random number generation, exceptions, local storage,
+      XMLHttpRequest and DOM manipulation.
 
       \lstinline|Eff| monad enables pure execution context for side-effects.
       With the help of effect monad the function \lstinline|getUserByName| can now
@@ -812,11 +812,11 @@ theory can be applied in Web programming with PureScript.
       row of effects and the second describes the return type of the
       \lstinline|Eff| monad. Here \lstinline|Eff| monad encapsulates side-effect
       interaction with \lstinline|localStorage| which is defined as a part of
-      DOM effect. As a result of the side-effect computation the function
+      a DOM effect. As a result of the side-effect computation the function
       \lstinline|getUserByName| returns \lstinline|Maybe User| just as before.
  
       \lstinline|Eff| monad enables the modeling of side effects in type level.
-      As a benefit used side-effects can be restricted in type level and
+      As a benefit, used side-effects can be restricted in type level and
       side-effectful computations can be easily distinguished from pure
       computations. In addition, \lstinline|Eff| has all the benefits of a monad
       category.
@@ -833,7 +833,7 @@ theory can be applied in Web programming with PureScript.
  
       However, this method easily leads into situation called callback hell when
       composing multiple asynchronous effects. Composition of asynchronous
-      effects can be solved with continuation monad transformer called
+      effects can be solved with a continuation monad transformer called
       \lstinline|ContT|. With the help of \lstinline|ContT|, \lstinline|Eff|
       monad can be extended to \lstinline|Async| type.
  
@@ -873,7 +873,7 @@ development. Several common constructions have theoretical base in category
 theory. The benefits from well proven theories is indisputable except one could
 argue that the learning curve is too steep. Type level reasoning of a program is
 highly beneficial and usually confirms the correctness of the program. In
-general a program is composed of smaller programs. The composition of atomic
+general, a program is composed of smaller programs. The composition of atomic
 operations fits well into description of category theory, which is all about
 morphisms and their composition.
  
@@ -904,8 +904,8 @@ mentioned in this paper.
 \section{Conclusions}
 
 Modern statically typed functional programming languages are highly influenced
-by category theory. It have had even larger impact on functional programming
-language semantics than lambda calculus. Abstract properties of category theory
+by category theory. It has had a large impact on functional programming
+language semantics along lambda calculus. Abstract properties of category theory
 can be found all over PureScript. These constructions provide enhanced
 reasoning and proven tools to everyday application development.
  
