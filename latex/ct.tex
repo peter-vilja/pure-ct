@@ -63,13 +63,13 @@ web programming, purescript
 \section{Introduction}
 
   Category theory is a fairly recent field in mathematics introduced by S.
-  Eilenberg and S. Mac Lane in 1945 \cite{eilenberg1945general,
-    awodey2006category}. Concepts of category theory can be used in different
+  Eilenberg and S. Mac Lane in 1945 \cite{awodey2006category,
+    eilenberg1945general}. Concepts of category theory can be used in different
   fields of mathematics and it provides a way to describe difficult problems
   from an abstract point of view \cite{eilenberg1945general, mclarty2007last}.
   It has applications in multiple fields such as in programming and
-  in separate fields of mathematics \cite{awodey2006category, reynolds1980using,
-    jones1993glasgow}. 
+  in separate fields of mathematics \cite{awodey2006category, jones1993glasgow,
+    reynolds1980using}.
 
   Category theory has emerged from the urge to abstract over structure. We
   humans interpret the world around us in terms of structures and patterns.
@@ -84,7 +84,7 @@ web programming, purescript
   solve the bigger problem. A category consists of objects and morphisms.
   Objects and morphisms alone does not contain any details of a category, but
   the composition of morphisms between objects describe the category
-  \cite{computational, barr1990category}. A composition of morphisms also has to
+  \cite{barr1990category, computational}. A composition of morphisms also has to
   fulfill certain laws described later in this paper. In essence, any structure
   that implements composability and identity can be seen as a category.
   Additionally to a definition of a category, functors and natural transformations
@@ -123,16 +123,16 @@ implementations of these concepts in programming languages.
   \textbf{domain} (dom) and \textbf{codomain} (cod) \cite{awodey2006category,
     barr1990category, mac2013categories}. They describe how objects are
   connected in a category and there can be any number of morphisms between two
-  objects \cite{computational, barr1990category}. For example, two objects can
+  objects \cite{barr1990category, computational}. For example, two objects can
   be connected with infinite amount of morphisms or there could be no morphisms
   between the objects. Morphisms with domain $a$ and codomain $b$ in a category
-  $C$ belong to a \textbf{hom-set} $hom_C(a, b)$ \cite{mac2013categories,
-    barr1990category}. A category can contain infinite amount of objects and
+  $C$ belong to a \textbf{hom-set} $hom_C(a, b)$ \cite{barr1990category,
+    mac2013categories}. A category can contain infinite amount of objects and
   morphisms. In category theory, morphisms between objects describe the category
   thus there is no restrictions to the internal structure of objects in a
   category \cite{computational}. Identity, composability and abstraction
-  are important features of a category \cite{barr1990category,
-    awodey2006category}. A category can be thought as a graph with an identity
+  are important features of a category \cite{awodey2006category,
+    barr1990category}. A category can be thought as a graph with an identity
   and composition properties, where morphisms (edges) connect objects (nodes)
   \cite{barr1990category}.
 
@@ -147,17 +147,17 @@ implementations of these concepts in programming languages.
     morphism $f$ there has to exist Left and Right identity. Thus we can compose
     identity morphism to both sides of a composition with another morphism. In
     Left identity we compose a morphism $f: a \rightarrow b$ with an identity
-    morphism $id_b$ such that $id_b \circ f = f$ \cite{computational,
-      barr1990category}. The identity morphism $id_b$ has no effect on the
+    morphism $id_b$ such that $id_b \circ f = f$ \cite{barr1990category,
+      computational}. The identity morphism $id_b$ has no effect on the
     resulting composed morphism and thus $id_b \circ f$ and $f$ are equal.
     Similarly in Right identity we compose a morphism $g: a \rightarrow b$ with
     an identity morphism $id_a$ such that $g \circ id_a = g$
-    \cite{computational, barr1990category}. Additionally the identity morphism
+    \cite{barr1990category, computational}. Additionally the identity morphism
     $id_a$ has no effect therefore $g \circ id_a$ and $g$ are equal.
  
     An identity element can be stated with Left and Right identity as follows.
     $f \circ id_a = f = id_b \circ f$ where $f: a \rightarrow b$, $id_a: a
-    \rightarrow a$ and $id_b: b \rightarrow b$ \cite{computational, barr1990category}.
+    \rightarrow a$ and $id_b: b \rightarrow b$ \cite{barr1990category, computational}.
 
 %------------------------------------------------------------
 
@@ -167,13 +167,13 @@ implementations of these concepts in programming languages.
     as objects and morphisms are primitives and do not contain any details of a
     category. Morphisms need to be composable and the composition of morphisms
     has to fulfill the laws of associativity \cite{barr1990category,
-      computational, mac2013categories}. Each pair of morphisms $f$ and $g$ with
+      mac2013categories, computational}. Each pair of morphisms $f$ and $g$ with
     $cod(f) = dom(g)$ must have a composition $g \circ f$ where $f: a
     \rightarrow b$, $g: b \rightarrow c$ and $g \circ f: a \rightarrow c$
     \cite{mac2013categories}. As morphisms need to be associative $h \circ (g
     \circ f)$ must always be equal with $(h \circ g) \circ f$ where $f$ and $g$
-    are as before and $h: c \rightarrow d$ \cite{eilenberg1945general,
-      computational, barr1990category, awodey2006category, mac2013categories}.
+    are as before and $h: c \rightarrow d$ \cite{awodey2006category,
+      barr1990category, eilenberg1945general, mac2013categories, computational}.
  
     $Set_{Rel}$, for example, is a category which contains sets as
     objects and relations between sets as morphism where a relation is a subset
@@ -388,7 +388,7 @@ implementations of these concepts in programming languages.
 
   \subsection{Functor}
     Functors are mappings, also known morphisms, between categories
-    \cite{computational, barr1990category, mac2013categories}. A functor $F: A
+    \cite{barr1990category, mac2013categories, computational}. A functor $F: A
     \rightarrow B$ preserves the structure of a category by having a mapping
     from objects of a category $A$ to objects of a category $B$ ($F: a
     \rightarrow F\, a$) and mapping from morphisms of $A$ to morphisms of $B$
@@ -420,8 +420,8 @@ implementations of these concepts in programming languages.
     Therefore, a functor needs to preserve all connections between objects from
     the source category, although there is no requirement for the resulting
     target category to obtain the same amount of morphisms thus multiple
-    morphisms can be presented as a single morphism \cite{computational,
-      barr1990category}. More precisely a functor is called as a faithful
+    morphisms can be presented as a single morphism \cite{barr1990category,
+      computational}. More precisely a functor is called as a faithful
     functor when the function between $hom_A(a, b)$ and $hom_B(F\, a, F\, b)$ for
     each $a, b \in A$ is injective. Similarly, a functor is called as a full
     functor when the function between $hom_A(a, b)$ and $hom_B(F\, a, F\, b)$ for
@@ -430,7 +430,7 @@ implementations of these concepts in programming languages.
  
     Additionally a functor $F: A \rightarrow A$, which maps objects and
     morphisms of a category $A$ to the same category, is called an
-    \textbf{endofunctor} \cite{computational, barr1990category}. In programming
+    \textbf{endofunctor} \cite{barr1990category, computational}. In programming
     languages functors are actually endofunctors. A functor can be composed to a
     new functor, for example functors $F: A \rightarrow B$ and $G: B \rightarrow
     C$ can be composed to a functor $G \circ F: A \rightarrow C$. A simple
@@ -441,8 +441,8 @@ implementations of these concepts in programming languages.
 % ------------------------------------------------------------
 
   \subsection{Natural transformation}
-    Natural transformation is a mapping between functors \cite{computational,
-      barr1990category, mac2013categories}. Whereas functors mapped objects and
+    Natural transformation is a mapping between functors \cite{barr1990category,
+      mac2013categories, computational}. Whereas functors mapped objects and
     morphisms between two categories a natural transformation maps the resulting
     objects from functors together. Thus for two functors $F: A
     \rightarrow B$ and $G: A \rightarrow B$ a natural transformation
@@ -452,7 +452,7 @@ implementations of these concepts in programming languages.
     natural transformation $\alpha$ has to follow naturality condition where for
     every morphism $f: a \rightarrow b$ in a category $A$ there has to exist equal
     compositions $\alpha_b \circ F\, f = G\, f \circ \alpha_a$
-    \cite{barr1990category, computational, eilenberg1945general}. That is, for
+    \cite{barr1990category, eilenberg1945general, computational}. That is, for
     every two objects $a$ and $b$ in a category $A$ which are connected with at
     least a single morphism we have the following commutative diagram
     \ref{natural} with a naturality square that needs to commute.
@@ -497,8 +497,8 @@ implementations of these concepts in programming languages.
     
   \subsection{Monoid}
     Monoids are semigroups with identity morphism. A monoid is a category with a
-    single object and at least an identity morphism \cite{barr1990category,
-      awodey2006category, mac2013categories, yorgey2012monoids}. Any morphisms
+    single object and at least an identity morphism \cite{awodey2006category,
+      barr1990category, mac2013categories, yorgey2012monoids}. Any morphisms
     in a monoid can be composed together as the result is always the same
     object. Thus morphisms in a monoid are endomorphisms which are morphisms
     from an object to itself. Monoid has to have an associative binary operator,
@@ -782,8 +782,8 @@ theory can be applied in Web programming with PureScript.
     \begin{lstlisting}[language=Haskell]
       user :: Maybe User
       user = join $ map getUserByName userInput
-    \end{lstlisting}
- 
+    \end{lstlisting} 
+
     Additionally a \lstinline|bind :: forall a b. m a -> (a -> m b) -> m b|,
     also known as \lstinline|>>=|, can be applied for more convenient syntax.
  
