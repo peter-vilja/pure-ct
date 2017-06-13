@@ -52,8 +52,8 @@
   development and reasoning of Web based programs are presented and discussed.
 
 \vspace{3mm}
-\noindent KEYWORDS: category theory, category, functor, natural transfromation,
-web programming, purescript 
+\noindent KEYWORDS: category theory, category, morphism, composition, monad,
+functor, natural transfromation, web programming, purescript 
 
 \end{abstract}
 
@@ -229,16 +229,15 @@ implementations of these concepts in programming languages.
 % ------------------------------------------------------------
 
   \subsection{Universal construction} 
-    A mathematical structure (TODO construction?) has some properties that defines the
-    structure itself. Universal construction is used to define properties of
-    structures (TODO constructions?) in terms of category theory. These properties are
-    called as universal properties. As category theory abstracts the details, all
-    reasoning of universal properties of some structure has to be done based on
-    morphisms and their compositions.
+    A mathematical construction has some properties that defines a structure.
+    Universal construction is used to define properties of structures in terms
+    of category theory. These properties are called as universal properties. As
+    category theory abstracts the details, all reasoning of universal properties
+    of some structure has to be done based on morphisms and their compositions.
  
-    Usually a category contains multiple objects that fulfill some property and
-    structure (TODO construction?). Universal construction picks the best candidate among
-    these objects. For every other candidate of object that holds the universal
+    Usually a category contains multiple objects that fulfill some properties and
+    structure. Universal construction picks the best candidate among these
+    objects. For every other candidate of object that holds the universal
     property there exists an unique morphism from the candidate to the object that
     has the universal property. In other word, the object that satisfies the given
     universal property is an initial or terminal object in the category of all
@@ -340,13 +339,11 @@ implementations of these concepts in programming languages.
     called an algebraic data type as it behaves like a multiplication and it
     obeys algebraic laws up to isomorphism. Product is symmetric up to
     isomorphism. Types \lstinline|(a, b)| and \lstinline|(b, a)| are not the
-    same but they preserve the same structure up to isomorphism. An isomorphism
-    between \lstinline|(a, b)| and \lstinline|(b, a)| is commonly defined with a
+    same but they preserve the same structure. An isomorphism between
+    \lstinline|(a, b)| and \lstinline|(b, a)| is commonly defined with a
     function called \lstinline|swap|. A product is also associative up to
     isomorphism. Product type also has a unit type \lstinline|()| up to
-    isomorphism and thus it obeys algebraic laws of monoid.
-
-    TODO: up to isomorphism repeats a lot above
+    isomorphism and thus it obeys algebraic laws of monoid \cite{barr1990category}.
 
 % ------------------------------------------------------------
 
@@ -382,7 +379,7 @@ implementations of these concepts in programming languages.
 
     The coproduct is usually presented with sum types. Coproduct obeys algebraic
     laws up to isomorphism and it can be seen as a sum. The coproduct is
-    symmetric, associative and it has unit up to isomorphism.
+    symmetric, associative and it has unit up to isomorphism \cite{barr1990category}.
     
 % ------------------------------------------------------------
 
